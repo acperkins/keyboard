@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>ACP Keyboard</title>
+    <meta name="viewport" content="width=device-width" />
+    <style>
+      body {
+        font-family: sans-serif;
+        width: 900px;
+        text-align: left;
+      }
+      table, thead, thead tr {
+        border-collapse: collapse;
+        border: 3px solid black;
+      }
+      tbody {
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+      }
+      th, td {
+        border-left: 1px solid black;
+        border-right: 1px solid black;
+        padding: 0.5em;
+      }
+      .level-group-left {
+        border-left: 3px solid black;
+      }
+      .level-group-right {
+        border-right: 3px solid black;
+      }
+      .deadkey {
+        background: lightgrey;
+      }
+      .key-character {
+        background: #e0ffff;
+      }
+      .codepoint {
+        font-family: monospace;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ACP Keyboard</h1>
+    <ol>
+      <li><a href="#rationale">Rationale</a></li>
+      <li><a href="#images">Images</a></li>
+      <ol>
+        <li><a href="#image-iso">UK ISO</a></li>
+        <li><a href="#image-ansi">US ANSI</a></li>
+      </ol>
+      <li><a href="#key-table">Key table</a></li>
+      <li><a href="#dead-key-table">Dead key table</a></li>
+      <li><a href="#code-reference-table">Code reference table</a></li>
+      <ol>
+        <li><a href="#dead-keys">Dead keys</a></li>
+        <li><a href="#unicode">Unicode</a></li>
+      </ol>
+    </ol>
+    <h2 id="rationale">Rationale</h2>
+
+    <p>There are thousands of keyboard layouts around. Why make a new one?
+    Simply: none of them worked for me. They either had too many symbols,
+    not enough symbols, or the layout was wrong. <a
+    href="https://bepo.fr/wiki/Accueil">BÉPO</a> came the closest to having the
+    main symbols I wanted, but I couldn’t get over the non-QWERTY layout; and
+    the <a href="https://kbdlayout.info/kbdcan">Canadian Multilingual
+    Standard</a> layout had the symbols I wanted, but they were spread across
+    six levels (AltGr and Right Ctrl both act as level selectors).
+
+    <p>So I made my own. There were a number of requirements for me:</p>
+
+    <ol>
+      <li>The most common English symbols I need should be available.</li>
+      <li>No more than four levels (normal; Shift; AltGr; and Shift+AltGr).</li>
+      <li>Keys should be grouped sensibly: the degree sign in °C is preceded by
+        a narrow non-breaking space, so they should be on the same level.</li>
+      <li>The main layout should be based on the UK ISO layout, but it should
+        also support the US ANSI layout with one key fewer.</li>
+      <li>It should be able to be used without Administrative permissions. This
+        led me to AutoHotKey on Windows, and a <tt>$HOME</tt>-based XKB layout
+        on Linux.</li>
+      <li>There should be support for French, German, and Spanish—as there are
+        a number of loanwords from these languages into English—but this should
+        not come at the cost of ease of use for English.</li>
+      <li>The base layers (Layer 1 and Layer 2) should not be changed.
+        AutoHotKey has an issue with Command Prompt in Remote Desktop sessions,
+        so changing the base layers stops the keys from working. It also means
+        there is no training period for this layout.</li>
+    </ol>
+
+    <h2 id="images">Images</h2>
+    <h3 id="image-iso">UK ISO</h3>
+    <svg viewBox="0 0 1200 400" width="900" height="300" role="img">
+      <title>UK ISO keyboard layout</title>
+      <defs>
+        <style>
+          rect, .iso-return {
+            fill: transparent;
+            stroke: black;
+            stroke-width: 3;
+          }
+          text {
+            font-family: sans-serif;
+            font-size: 30px;
+            vertical-align: top;
+          }
+          .layer1 {
+            dominant-baseline: auto;
+            text-anchor: start;
+          }
+          .layer2 {
+            dominant-baseline: hanging;
+            text-anchor: start;
+          }
+          .layer3 {
+            dominant-baseline: auto;
+            text-anchor: end;
+          }
+          .layer4 {
+            dominant-baseline: hanging;
+            text-anchor: end;
+          }
+          .function {
+            font-size: 20px;
+          }
+          .deadkey {
+            fill: red;
+          }
+        </style>
+      </defs>
+
+      <!-- Keyboard outline -->
+      <rect x="0" y="0" width="1200" height="400" />
+
+      <!-- First row -->
+
+      <rect x="0" y="0" width="80" height="80" />
+      <text x="10" y="70" class="layer1">&#x0060;</text>
+      <text x="10" y="10" class="layer2">&#x00ac;</text>
+      <text x="70" y="70" class="layer3">&#x007c;</text>
+      <text x="70" y="10" class="layer4">&#x00b1;</text>
+
+      <rect x="80" y="0" width="80" height="80" />
+      <text x="90" y="70" class="layer1">&#x0031;</text>
+      <text x="90" y="10" class="layer2">&#x0021;</text>
+      <text x="150" y="70" class="layer3">&#x0021;</text>
+      <text x="150" y="10" class="layer4">&#x00a1;</text>
+
+      <rect x="160" y="0" width="80" height="80" />
+      <text x="170" y="70" class="layer1">&#x0032;</text>
+      <text x="170" y="10" class="layer2">&#x0022;</text>
+      <text x="230" y="70" class="layer3">&#x00a2;</text>
+      <text x="230" y="10" class="layer4">&#x00ab;</text>
+
+      <rect x="240" y="0" width="80" height="80" />
+      <text x="250" y="70" class="layer1">&#x0033;</text>
+      <text x="250" y="10" class="layer2">&#x00a3;</text>
+      <text x="310" y="70" class="layer3">&#x00a3;</text>
+      <text x="310" y="10" class="layer4">&#x00bb;</text>
+
+      <rect x="320" y="0" width="80" height="80" />
+      <text x="330" y="70" class="layer1">&#x0034;</text>
+      <text x="330" y="10" class="layer2">&#x0024;</text>
+      <text x="390" y="70" class="layer3">&#x20ac;</text>
+      <text x="390" y="10" class="layer4">&#x2039;</text>
+
+      <rect x="400" y="0" width="80" height="80" />
+      <text x="410" y="70" class="layer1">&#x0035;</text>
+      <text x="410" y="10" class="layer2">&#x0025;</text>
+      <text x="470" y="70" class="layer3">&#x2030;</text>
+      <text x="470" y="10" class="layer4">&#x203a;</text>
+
+      <rect x="480" y="0" width="80" height="80" />
+      <text x="490" y="70" class="layer1">&#x0036;</text>
+      <text x="490" y="10" class="layer2">&#x005e;</text>
+      <text x="550" y="70" class="layer3">&#x221a;</text>
+      <text x="550" y="10" class="layer4">&#x2713;</text>
+
+      <rect x="560" y="0" width="80" height="80" />
+      <text x="570" y="70" class="layer1">&#x0037;</text>
+      <text x="570" y="10" class="layer2">&#x0026;</text>
+      <text x="630" y="70" class="layer3">&#x204a;</text>
+      <text x="630" y="10" class="layer4">&#x2717;</text>
+
+      <rect x="640" y="0" width="80" height="80" />
+      <text x="650" y="70" class="layer1">&#x0038;</text>
+      <text x="650" y="10" class="layer2">&#x002a;</text>
+      <text x="710" y="70" class="layer3">&#x00b0;</text>
+      <text x="710" y="10" class="layer4">&#x2022;</text>
+
+      <rect x="720" y="0" width="80" height="80" />
+      <text x="730" y="70" class="layer1">&#x0039;</text>
+      <text x="730" y="10" class="layer2">&#x0028;</text>
+      <text x="790" y="70" class="layer3">&#x00aa;</text>
+      <text x="790" y="10" class="layer4"></text>
+
+      <rect x="800" y="0" width="80" height="80" />
+      <text x="810" y="70" class="layer1">&#x0030;</text>
+      <text x="810" y="10" class="layer2">&#x0029;</text>
+      <text x="870" y="70" class="layer3">&#x00ba;</text>
+      <text x="870" y="10" class="layer4">&#x00d7;</text>
+
+      <rect x="880" y="0" width="80" height="80" />
+      <text x="890" y="70" class="layer1">&#x002d;</text>
+      <text x="890" y="10" class="layer2">&#x005f;</text>
+      <text x="950" y="70" class="layer3">&#x2212;</text>
+      <text x="950" y="10" class="layer4">&#x00f7;</text>
+
+      <rect x="960" y="0" width="80" height="80" />
+      <text x="970" y="70" class="layer1">&#x003d;</text>
+      <text x="970" y="10" class="layer2">&#x002b;</text>
+      <text x="1030" y="70" class="layer3">&#x2248;</text>
+      <text x="1030" y="10" class="layer4">&#x2260;</text>
+
+      <rect x="1040" y="0" width="160" height="80" />
+      <text x="1050" y="10" class="layer2 function">Backspace</text>
+
+      <!-- Second row -->
+
+      <rect x="0" y="80" width="120" height="80" />
+      <text x="10" y="90" class="layer2 function">Tab</text>
+
+      <rect x="120" y="80" width="80" height="80" />
+      <text x="130" y="150" class="layer1">&#x0071;</text>
+      <text x="130" y="90" class="layer2">&#x0051;</text>
+      <text x="190" y="150" class="layer3">&#x00e0;</text>
+      <text x="190" y="90" class="layer4">&#x00c0;</text>
+
+      <rect x="200" y="80" width="80" height="80" />
+      <text x="210" y="150" class="layer1">&#x0077;</text>
+      <text x="210" y="90" class="layer2">&#x0057;</text>
+      <text x="270" y="150" class="layer3">&#x00e9;</text>
+      <text x="270" y="90" class="layer4">&#x00c9;</text>
+
+      <rect x="280" y="80" width="80" height="80" />
+      <text x="290" y="150" class="layer1">&#x0065;</text>
+      <text x="290" y="90" class="layer2">&#x0045;</text>
+      <text x="350" y="150" class="layer3">&#x00eb;</text>
+      <text x="350" y="90" class="layer4">&#x00cb;</text>
+
+      <rect x="360" y="80" width="80" height="80" />
+      <text x="370" y="150" class="layer1">&#x0072;</text>
+      <text x="370" y="90" class="layer2">&#x0052;</text>
+      <text x="430" y="150" class="layer3">&#x00e8;</text>
+      <text x="430" y="90" class="layer4">&#x00c8;</text>
+
+      <rect x="440" y="80" width="80" height="80" />
+      <text x="450" y="150" class="layer1">&#x0074;</text>
+      <text x="450" y="90" class="layer2">&#x0054;</text>
+      <text x="510" y="150" class="layer3">&#x00ae;</text>
+      <text x="510" y="90" class="layer4">&#x00a9;</text>
+
+      <rect x="520" y="80" width="80" height="80" />
+      <text x="530" y="150" class="layer1">&#x0079;</text>
+      <text x="530" y="90" class="layer2">&#x0059;</text>
+      <text x="590" y="150" class="layer3">&#x00fb;</text>
+      <text x="590" y="90" class="layer4">&#x00db;</text>
+
+      <rect x="600" y="80" width="80" height="80" />
+      <text x="610" y="150" class="layer1">&#x0075;</text>
+      <text x="610" y="90" class="layer2">&#x0055;</text>
+      <text x="670" y="150" class="layer3">&#x00fc;</text>
+      <text x="670" y="90" class="layer4">&#x00dc;</text>
+
+      <rect x="680" y="80" width="80" height="80" />
+      <text x="690" y="150" class="layer1">&#x0069;</text>
+      <text x="690" y="90" class="layer2">&#x0049;</text>
+      <text x="750" y="150" class="layer3">&#x00ef;</text>
+      <text x="750" y="90" class="layer4">&#x00cf;</text>
+
+      <rect x="760" y="80" width="80" height="80" />
+      <text x="770" y="150" class="layer1">&#x006f;</text>
+      <text x="770" y="90" class="layer2">&#x004f;</text>
+      <text x="830" y="150" class="layer3">&#x00f6;</text>
+      <text x="830" y="90" class="layer4">&#x00d6;</text>
+
+      <rect x="840" y="80" width="80" height="80" />
+      <text x="850" y="150" class="layer1">&#x0070;</text>
+      <text x="850" y="90" class="layer2">&#x0050;</text>
+      <text x="910" y="150" class="layer3">&#x00b6;</text>
+      <text x="910" y="90" class="layer4">&#x00a7;</text>
+
+      <rect x="920" y="80" width="80" height="80" />
+      <text x="930" y="150" class="layer1">&#x005b;</text>
+      <text x="930" y="90" class="layer2">&#x007b;</text>
+      <text x="990" y="150" class="layer3">&#x201c;</text>
+      <text x="990" y="90" class="layer4">&#x201e;</text>
+
+      <rect x="1000" y="80" width="80" height="80" />
+      <text x="1010" y="150" class="layer1">&#x005d;</text>
+      <text x="1010" y="90" class="layer2">&#x007d;</text>
+      <text x="1070" y="150" class="layer3">&#x201d;</text>
+      <text x="1070" y="90" class="layer4">&#x201a;</text>
+
+      <!-- Third row -->
+
+      <rect x="0" y="160" width="140" height="80" />
+      <text x="10" y="170" class="layer2 function">Caps Lock</text>
+
+      <rect x="140" y="160" width="80" height="80" />
+      <text x="150" y="230" class="layer1">&#x0061;</text>
+      <text x="150" y="170" class="layer2">&#x0041;</text>
+      <text x="210" y="230" class="layer3">&#x00e4;</text>
+      <text x="210" y="170" class="layer4">&#x00c4;</text>
+
+      <rect x="220" y="160" width="80" height="80" />
+      <text x="230" y="230" class="layer1">&#x0073;</text>
+      <text x="230" y="170" class="layer2">&#x0053;</text>
+      <text x="290" y="230" class="layer3">&#x00df;</text>
+      <text x="290" y="170" class="layer4">&#x1e9e;</text>
+
+      <rect x="300" y="160" width="80" height="80" />
+      <text x="310" y="230" class="layer1">&#x0064;</text>
+      <text x="310" y="170" class="layer2">&#x0044;</text>
+      <text x="370" y="230" class="layer3 deadkey">&#x00a8;</text>
+      <text x="370" y="170" class="layer4">&#x2033;</text>
+
+      <rect x="380" y="160" width="80" height="80" />
+      <text x="390" y="230" class="layer1">&#x0066;</text>
+      <text x="390" y="170" class="layer2">&#x0046;</text>
+      <text x="450" y="230" class="layer3 deadkey">&#x00b4;</text>
+      <text x="450" y="170" class="layer4">&#x2032;</text>
+
+      <rect x="460" y="160" width="80" height="80" />
+      <text x="470" y="230" class="layer1">&#x0067;</text>
+      <text x="470" y="170" class="layer2">&#x0047;</text>
+      <text x="530" y="230" class="layer3 deadkey">&#x00af;</text>
+      <text x="530" y="170" class="layer4"></text>
+
+      <rect x="540" y="160" width="80" height="80" />
+      <text x="550" y="230" class="layer1">&#x0068;</text>
+      <text x="550" y="170" class="layer2">&#x0048;</text>
+      <text x="610" y="230" class="layer3"></text>
+      <text x="610" y="170" class="layer4"></text>
+
+      <rect x="620" y="160" width="80" height="80" />
+      <text x="630" y="230" class="layer1">&#x006a;</text>
+      <text x="630" y="170" class="layer2">&#x004a;</text>
+      <text x="690" y="230" class="layer3 deadkey">&#x0060;</text>
+      <text x="690" y="170" class="layer4"></text>
+
+      <rect x="700" y="160" width="80" height="80" />
+      <text x="710" y="230" class="layer1">&#x006b;</text>
+      <text x="710" y="170" class="layer2">&#x004b;</text>
+      <text x="770" y="230" class="layer3 deadkey">&#x005e;</text>
+      <text x="770" y="170" class="layer4"></text>
+
+      <rect x="780" y="160" width="80" height="80" />
+      <text x="790" y="230" class="layer1">&#x006c;</text>
+      <text x="790" y="170" class="layer2">&#x004c;</text>
+      <text x="850" y="230" class="layer3">&#x00f4;</text>
+      <text x="850" y="170" class="layer4">&#x00d4;</text>
+
+      <rect x="860" y="160" width="80" height="80" />
+      <text x="870" y="230" class="layer1">&#x003b;</text>
+      <text x="870" y="170" class="layer2">&#x003a;</text>
+      <text x="930" y="230" class="layer3">&#x003b;</text>
+      <text x="930" y="170" class="layer4">&#x003a;</text>
+
+      <rect x="940" y="160" width="80" height="80" />
+      <text x="950" y="230" class="layer1">&#x0027;</text>
+      <text x="950" y="170" class="layer2">&#x0040;</text>
+      <text x="1010" y="230" class="layer3">&#x2019;</text>
+      <text x="1010" y="170" class="layer4">&#x2018;</text>
+
+      <rect x="1020" y="160" width="80" height="80" />
+      <text x="1030" y="230" class="layer1">&#x0023;</text>
+      <text x="1030" y="170" class="layer2">&#x007e;</text>
+      <text x="1090" y="230" class="layer3">&#x005c;</text>
+      <text x="1090" y="170" class="layer4"></text>
+
+      <!-- Fourth row -->
+
+      <rect x="0" y="240" width="100" height="80" />
+      <text x="10" y="250" class="layer2 function">Shift</text>
+
+      <rect x="100" y="240" width="80" height="80" />
+      <text x="110" y="310" class="layer1">&#x005c;</text>
+      <text x="110" y="250" class="layer2">&#x007c;</text>
+      <text x="170" y="310" class="layer3">&#x00ea;</text>
+      <text x="170" y="250" class="layer4">&#x00ca;</text>
+
+      <rect x="180" y="240" width="80" height="80" />
+      <text x="190" y="310" class="layer1">&#x007a;</text>
+      <text x="190" y="250" class="layer2">&#x005a;</text>
+      <text x="250" y="310" class="layer3">&#x00e6;</text>
+      <text x="250" y="250" class="layer4">&#x00c6;</text>
+
+      <rect x="260" y="240" width="80" height="80" />
+      <text x="270" y="310" class="layer1">&#x0078;</text>
+      <text x="270" y="250" class="layer2">&#x0058;</text>
+      <text x="330" y="310" class="layer3">&#x0153;</text>
+      <text x="330" y="250" class="layer4">&#x0152;</text>
+
+      <rect x="340" y="240" width="80" height="80" />
+      <text x="350" y="310" class="layer1">&#x0063;</text>
+      <text x="350" y="250" class="layer2">&#x0043;</text>
+      <text x="410" y="310" class="layer3">&#x00e7;</text>
+      <text x="410" y="250" class="layer4">&#x00c7;</text>
+
+      <rect x="420" y="240" width="80" height="80" />
+      <text x="430" y="310" class="layer1">&#x0076;</text>
+      <text x="430" y="250" class="layer2">&#x0056;</text>
+      <text x="490" y="310" class="layer3">&#x2014;</text>
+      <text x="490" y="250" class="layer4"></text>
+
+      <rect x="500" y="240" width="80" height="80" />
+      <text x="510" y="310" class="layer1">&#x0062;</text>
+      <text x="510" y="250" class="layer2">&#x0042;</text>
+      <text x="570" y="310" class="layer3">&#x2013;</text>
+      <text x="570" y="250" class="layer4"></text>
+
+      <rect x="580" y="240" width="80" height="80" />
+      <text x="590" y="310" class="layer1">&#x006e;</text>
+      <text x="590" y="250" class="layer2">&#x004e;</text>
+      <text x="650" y="310" class="layer3">&#x00f1;</text>
+      <text x="650" y="250" class="layer4">&#x00d1;</text>
+
+      <rect x="660" y="240" width="80" height="80" />
+      <text x="670" y="310" class="layer1">&#x006d;</text>
+      <text x="670" y="250" class="layer2">&#x004d;</text>
+      <text x="730" y="310" class="layer3">&#x00b5;</text>
+      <text x="730" y="250" class="layer4">&#x2122;</text>
+
+      <rect x="740" y="240" width="80" height="80" />
+      <text x="750" y="310" class="layer1">&#x002c;</text>
+      <text x="750" y="250" class="layer2">&#x003c;</text>
+      <text x="810" y="310" class="layer3">&#x2026;</text>
+      <text x="810" y="250" class="layer4">&#x2264;</text>
+
+      <rect x="820" y="240" width="80" height="80" />
+      <text x="830" y="310" class="layer1">&#x002e;</text>
+      <text x="830" y="250" class="layer2">&#x003e;</text>
+      <text x="890" y="310" class="layer3">&#x22c5;</text>
+      <text x="890" y="250" class="layer4">&#x2265;</text>
+
+      <rect x="900" y="240" width="80" height="80" />
+      <text x="910" y="310" class="layer1">&#x002f;</text>
+      <text x="910" y="250" class="layer2">&#x003f;</text>
+      <text x="970" y="310" class="layer3">&#x003f;</text>
+      <text x="970" y="250" class="layer4">&#x00bf;</text>
+
+      <rect x="980" y="240" width="220" height="80" />
+      <text x="990" y="250" class="layer2 function">Shift</text>
+
+      <!-- Fifth row -->
+
+      <rect x="0" y="320" width="120" height="80" />
+      <text x="10" y="350" class="function">Ctrl</text>
+
+      <rect x="120" y="320" width="100" height="80" />
+      <text x="130" y="350" class="function">Win</text>
+
+      <rect x="220" y="320" width="100" height="80" />
+      <text x="230" y="350" class="function">Alt</text>
+
+      <rect x="320" y="320" width="460" height="80" />
+      <text x="330" y="390" class="layer1 function">Space</text>
+      <text x="330" y="330" class="layer2 function">Space</text>
+      <text x="770" y="390" class="layer3 function">Narrow non-breaking space</text>
+      <text x="770" y="330" class="layer4 function">Non-breaking space</text>
+
+      <rect x="780" y="320" width="100" height="80" />
+      <text x="790" y="350" class="function">AltGr</text>
+
+      <rect x="880" y="320" width="100" height="80" />
+      <text x="890" y="350" class="function">Win</text>
+
+      <rect x="980" y="320" width="100" height="80" />
+      <text x="990" y="350" class="function">Menu</text>
+
+      <rect x="1080" y="320" width="120" height="80" />
+      <text x="1090" y="350" class="function">Ctrl</text>
+
+      <!-- Return -->
+
+      <polygon points="1080, 80
+                       1200, 80
+                       1200, 240
+                       1100, 240
+                       1100, 160
+                       1080, 160" class="iso-return" />
+      <text x="1090" y="110" class="function">Return</text>
+
+    </svg>
+    <h3 id="image-ansi">US ANSI</h3>
+    <svg viewBox="0 0 1200 400" width="900" height="300" role="img">
+      <title>US ANSI keyboard layout</title>
+      <defs>
+        <style>
+          rect, .iso-return {
+            fill: transparent;
+            stroke: black;
+            stroke-width: 3;
+          }
+          text {
+            font-family: sans-serif;
+            font-size: 30px;
+            vertical-align: top;
+          }
+          .layer1 {
+            dominant-baseline: auto;
+            text-anchor: start;
+          }
+          .layer2 {
+            dominant-baseline: hanging;
+            text-anchor: start;
+          }
+          .layer3 {
+            dominant-baseline: auto;
+            text-anchor: end;
+          }
+          .layer4 {
+            dominant-baseline: hanging;
+            text-anchor: end;
+          }
+          .function {
+            font-size: 20px;
+          }
+          .deadkey {
+            fill: red;
+          }
+        </style>
+      </defs>
+
+      <!-- Keyboard outline -->
+      <rect x="0" y="0" width="1200" height="400" />
+
+      <!-- First row -->
+
+      <rect x="0" y="0" width="80" height="80" />
+      <text x="10" y="70" class="layer1">&#x0060;</text>
+      <text x="10" y="10" class="layer2">&#x007e;</text>
+      <text x="70" y="70" class="layer3">&#x007c;</text>
+      <text x="70" y="10" class="layer4">&#x00b1;</text>
+
+      <rect x="80" y="0" width="80" height="80" />
+      <text x="90" y="70" class="layer1">&#x0031;</text>
+      <text x="90" y="10" class="layer2">&#x0021;</text>
+      <text x="150" y="70" class="layer3">&#x0021;</text>
+      <text x="150" y="10" class="layer4">&#x00a1;</text>
+
+      <rect x="160" y="0" width="80" height="80" />
+      <text x="170" y="70" class="layer1">&#x0032;</text>
+      <text x="170" y="10" class="layer2">&#x0040;</text>
+      <text x="230" y="70" class="layer3">&#x00a2;</text>
+      <text x="230" y="10" class="layer4">&#x00ab;</text>
+
+      <rect x="240" y="0" width="80" height="80" />
+      <text x="250" y="70" class="layer1">&#x0033;</text>
+      <text x="250" y="10" class="layer2">&#x0023;</text>
+      <text x="310" y="70" class="layer3">&#x00a3;</text>
+      <text x="310" y="10" class="layer4">&#x00bb;</text>
+
+      <rect x="320" y="0" width="80" height="80" />
+      <text x="330" y="70" class="layer1">&#x0034;</text>
+      <text x="330" y="10" class="layer2">&#x0024;</text>
+      <text x="390" y="70" class="layer3">&#x20ac;</text>
+      <text x="390" y="10" class="layer4">&#x2039;</text>
+
+      <rect x="400" y="0" width="80" height="80" />
+      <text x="410" y="70" class="layer1">&#x0035;</text>
+      <text x="410" y="10" class="layer2">&#x0025;</text>
+      <text x="470" y="70" class="layer3">&#x2030;</text>
+      <text x="470" y="10" class="layer4">&#x203a;</text>
+
+      <rect x="480" y="0" width="80" height="80" />
+      <text x="490" y="70" class="layer1">&#x0036;</text>
+      <text x="490" y="10" class="layer2">&#x005e;</text>
+      <text x="550" y="70" class="layer3">&#x221a;</text>
+      <text x="550" y="10" class="layer4">&#x2713;</text>
+
+      <rect x="560" y="0" width="80" height="80" />
+      <text x="570" y="70" class="layer1">&#x0037;</text>
+      <text x="570" y="10" class="layer2">&#x0026;</text>
+      <text x="630" y="70" class="layer3">&#x204a;</text>
+      <text x="630" y="10" class="layer4">&#x2717;</text>
+
+      <rect x="640" y="0" width="80" height="80" />
+      <text x="650" y="70" class="layer1">&#x0038;</text>
+      <text x="650" y="10" class="layer2">&#x002a;</text>
+      <text x="710" y="70" class="layer3">&#x00b0;</text>
+      <text x="710" y="10" class="layer4">&#x2022;</text>
+
+      <rect x="720" y="0" width="80" height="80" />
+      <text x="730" y="70" class="layer1">&#x0039;</text>
+      <text x="730" y="10" class="layer2">&#x0028;</text>
+      <text x="790" y="70" class="layer3">&#x00aa;</text>
+      <text x="790" y="10" class="layer4"></text>
+
+      <rect x="800" y="0" width="80" height="80" />
+      <text x="810" y="70" class="layer1">&#x0030;</text>
+      <text x="810" y="10" class="layer2">&#x0029;</text>
+      <text x="870" y="70" class="layer3">&#x00ba;</text>
+      <text x="870" y="10" class="layer4">&#x00d7;</text>
+
+      <rect x="880" y="0" width="80" height="80" />
+      <text x="890" y="70" class="layer1">&#x002d;</text>
+      <text x="890" y="10" class="layer2">&#x005f;</text>
+      <text x="950" y="70" class="layer3">&#x2212;</text>
+      <text x="950" y="10" class="layer4">&#x00f7;</text>
+
+      <rect x="960" y="0" width="80" height="80" />
+      <text x="970" y="70" class="layer1">&#x003d;</text>
+      <text x="970" y="10" class="layer2">&#x002b;</text>
+      <text x="1030" y="70" class="layer3">&#x2248;</text>
+      <text x="1030" y="10" class="layer4">&#x2260;</text>
+
+      <rect x="1040" y="0" width="160" height="80" />
+      <text x="1050" y="10" class="layer2 function">Backspace</text>
+
+      <!-- Second row -->
+
+      <rect x="0" y="80" width="120" height="80" />
+      <text x="10" y="90" class="layer2 function">Tab</text>
+
+      <rect x="120" y="80" width="80" height="80" />
+      <text x="130" y="150" class="layer1">&#x0071;</text>
+      <text x="130" y="90" class="layer2">&#x0051;</text>
+      <text x="190" y="150" class="layer3">&#x00e0;</text>
+      <text x="190" y="90" class="layer4">&#x00c0;</text>
+
+      <rect x="200" y="80" width="80" height="80" />
+      <text x="210" y="150" class="layer1">&#x0077;</text>
+      <text x="210" y="90" class="layer2">&#x0057;</text>
+      <text x="270" y="150" class="layer3">&#x00e9;</text>
+      <text x="270" y="90" class="layer4">&#x00c9;</text>
+
+      <rect x="280" y="80" width="80" height="80" />
+      <text x="290" y="150" class="layer1">&#x0065;</text>
+      <text x="290" y="90" class="layer2">&#x0045;</text>
+      <text x="350" y="150" class="layer3">&#x00eb;</text>
+      <text x="350" y="90" class="layer4">&#x00cb;</text>
+
+      <rect x="360" y="80" width="80" height="80" />
+      <text x="370" y="150" class="layer1">&#x0072;</text>
+      <text x="370" y="90" class="layer2">&#x0052;</text>
+      <text x="430" y="150" class="layer3">&#x00e8;</text>
+      <text x="430" y="90" class="layer4">&#x00c8;</text>
+
+      <rect x="440" y="80" width="80" height="80" />
+      <text x="450" y="150" class="layer1">&#x0074;</text>
+      <text x="450" y="90" class="layer2">&#x0054;</text>
+      <text x="510" y="150" class="layer3">&#x00ae;</text>
+      <text x="510" y="90" class="layer4">&#x00a9;</text>
+
+      <rect x="520" y="80" width="80" height="80" />
+      <text x="530" y="150" class="layer1">&#x0079;</text>
+      <text x="530" y="90" class="layer2">&#x0059;</text>
+      <text x="590" y="150" class="layer3">&#x00fb;</text>
+      <text x="590" y="90" class="layer4">&#x00db;</text>
+
+      <rect x="600" y="80" width="80" height="80" />
+      <text x="610" y="150" class="layer1">&#x0075;</text>
+      <text x="610" y="90" class="layer2">&#x0055;</text>
+      <text x="670" y="150" class="layer3">&#x00fc;</text>
+      <text x="670" y="90" class="layer4">&#x00dc;</text>
+
+      <rect x="680" y="80" width="80" height="80" />
+      <text x="690" y="150" class="layer1">&#x0069;</text>
+      <text x="690" y="90" class="layer2">&#x0049;</text>
+      <text x="750" y="150" class="layer3">&#x00ef;</text>
+      <text x="750" y="90" class="layer4">&#x00cf;</text>
+
+      <rect x="760" y="80" width="80" height="80" />
+      <text x="770" y="150" class="layer1">&#x006f;</text>
+      <text x="770" y="90" class="layer2">&#x004f;</text>
+      <text x="830" y="150" class="layer3">&#x00f6;</text>
+      <text x="830" y="90" class="layer4">&#x00d6;</text>
+
+      <rect x="840" y="80" width="80" height="80" />
+      <text x="850" y="150" class="layer1">&#x0070;</text>
+      <text x="850" y="90" class="layer2">&#x0050;</text>
+      <text x="910" y="150" class="layer3">&#x00b6;</text>
+      <text x="910" y="90" class="layer4">&#x00a7;</text>
+
+      <rect x="920" y="80" width="80" height="80" />
+      <text x="930" y="150" class="layer1">&#x005b;</text>
+      <text x="930" y="90" class="layer2">&#x007b;</text>
+      <text x="990" y="150" class="layer3">&#x201c;</text>
+      <text x="990" y="90" class="layer4">&#x201e;</text>
+
+      <rect x="1000" y="80" width="80" height="80" />
+      <text x="1010" y="150" class="layer1">&#x005d;</text>
+      <text x="1010" y="90" class="layer2">&#x007d;</text>
+      <text x="1070" y="150" class="layer3">&#x201d;</text>
+      <text x="1070" y="90" class="layer4">&#x201a;</text>
+
+      <rect x="1080" y="80" width="120" height="80" />
+      <text x="1090" y="150" class="layer1">&#x005c;</text>
+      <text x="1090" y="90" class="layer2">&#x007c;</text>
+      <text x="1190" y="150" class="layer3">&#x005c;</text>
+      <text x="1190" y="90" class="layer4"></text>
+
+      <!-- Third row -->
+
+      <rect x="0" y="160" width="140" height="80" />
+      <text x="10" y="170" class="layer2 function">Caps Lock</text>
+
+      <rect x="140" y="160" width="80" height="80" />
+      <text x="150" y="230" class="layer1">&#x0061;</text>
+      <text x="150" y="170" class="layer2">&#x0041;</text>
+      <text x="210" y="230" class="layer3">&#x00e4;</text>
+      <text x="210" y="170" class="layer4">&#x00c4;</text>
+
+      <rect x="220" y="160" width="80" height="80" />
+      <text x="230" y="230" class="layer1">&#x0073;</text>
+      <text x="230" y="170" class="layer2">&#x0053;</text>
+      <text x="290" y="230" class="layer3">&#x00df;</text>
+      <text x="290" y="170" class="layer4">&#x1e9e;</text>
+
+      <rect x="300" y="160" width="80" height="80" />
+      <text x="310" y="230" class="layer1">&#x0064;</text>
+      <text x="310" y="170" class="layer2">&#x0044;</text>
+      <text x="370" y="230" class="layer3 deadkey">&#x00a8;</text>
+      <text x="370" y="170" class="layer4">&#x2033;</text>
+
+      <rect x="380" y="160" width="80" height="80" />
+      <text x="390" y="230" class="layer1">&#x0066;</text>
+      <text x="390" y="170" class="layer2">&#x0046;</text>
+      <text x="450" y="230" class="layer3 deadkey">&#x00b4;</text>
+      <text x="450" y="170" class="layer4">&#x2032;</text>
+
+      <rect x="460" y="160" width="80" height="80" />
+      <text x="470" y="230" class="layer1">&#x0067;</text>
+      <text x="470" y="170" class="layer2">&#x0047;</text>
+      <text x="530" y="230" class="layer3 deadkey">&#x00af;</text>
+      <text x="530" y="170" class="layer4"></text>
+
+      <rect x="540" y="160" width="80" height="80" />
+      <text x="550" y="230" class="layer1">&#x0068;</text>
+      <text x="550" y="170" class="layer2">&#x0048;</text>
+      <text x="610" y="230" class="layer3"></text>
+      <text x="610" y="170" class="layer4"></text>
+
+      <rect x="620" y="160" width="80" height="80" />
+      <text x="630" y="230" class="layer1">&#x006a;</text>
+      <text x="630" y="170" class="layer2">&#x004a;</text>
+      <text x="690" y="230" class="layer3 deadkey">&#x0060;</text>
+      <text x="690" y="170" class="layer4"></text>
+
+      <rect x="700" y="160" width="80" height="80" />
+      <text x="710" y="230" class="layer1">&#x006b;</text>
+      <text x="710" y="170" class="layer2">&#x004b;</text>
+      <text x="770" y="230" class="layer3 deadkey">&#x005e;</text>
+      <text x="770" y="170" class="layer4"></text>
+
+      <rect x="780" y="160" width="80" height="80" />
+      <text x="790" y="230" class="layer1">&#x006c;</text>
+      <text x="790" y="170" class="layer2">&#x004c;</text>
+      <text x="850" y="230" class="layer3">&#x00f4;</text>
+      <text x="850" y="170" class="layer4">&#x00d4;</text>
+
+      <rect x="860" y="160" width="80" height="80" />
+      <text x="870" y="230" class="layer1">&#x003b;</text>
+      <text x="870" y="170" class="layer2">&#x003a;</text>
+      <text x="930" y="230" class="layer3">&#x003b;</text>
+      <text x="930" y="170" class="layer4">&#x003a;</text>
+
+      <rect x="940" y="160" width="80" height="80" />
+      <text x="950" y="230" class="layer1">&#x0027;</text>
+      <text x="950" y="170" class="layer2">&#x0022;</text>
+      <text x="1010" y="230" class="layer3">&#x2019;</text>
+      <text x="1010" y="170" class="layer4">&#x2018;</text>
+
+      <rect x="1020" y="160" width="180" height="80" />
+      <text x="1030" y="170" class="layer2 function">Return</text>
+
+      <!-- Fourth row -->
+
+      <rect x="0" y="240" width="180" height="80" />
+      <text x="10" y="250" class="layer2 function">Shift</text>
+
+      <rect x="180" y="240" width="80" height="80" />
+      <text x="190" y="310" class="layer1">&#x007a;</text>
+      <text x="190" y="250" class="layer2">&#x005a;</text>
+      <text x="250" y="310" class="layer3">&#x00e6;</text>
+      <text x="250" y="250" class="layer4">&#x00c6;</text>
+
+      <rect x="260" y="240" width="80" height="80" />
+      <text x="270" y="310" class="layer1">&#x0078;</text>
+      <text x="270" y="250" class="layer2">&#x0058;</text>
+      <text x="330" y="310" class="layer3">&#x0153;</text>
+      <text x="330" y="250" class="layer4">&#x0152;</text>
+
+      <rect x="340" y="240" width="80" height="80" />
+      <text x="350" y="310" class="layer1">&#x0063;</text>
+      <text x="350" y="250" class="layer2">&#x0043;</text>
+      <text x="410" y="310" class="layer3">&#x00e7;</text>
+      <text x="410" y="250" class="layer4">&#x00c7;</text>
+
+      <rect x="420" y="240" width="80" height="80" />
+      <text x="430" y="310" class="layer1">&#x0076;</text>
+      <text x="430" y="250" class="layer2">&#x0056;</text>
+      <text x="490" y="310" class="layer3">&#x2014;</text>
+      <text x="490" y="250" class="layer4"></text>
+
+      <rect x="500" y="240" width="80" height="80" />
+      <text x="510" y="310" class="layer1">&#x0062;</text>
+      <text x="510" y="250" class="layer2">&#x0042;</text>
+      <text x="570" y="310" class="layer3">&#x2013;</text>
+      <text x="570" y="250" class="layer4"></text>
+
+      <rect x="580" y="240" width="80" height="80" />
+      <text x="590" y="310" class="layer1">&#x006e;</text>
+      <text x="590" y="250" class="layer2">&#x004e;</text>
+      <text x="650" y="310" class="layer3">&#x00f1;</text>
+      <text x="650" y="250" class="layer4">&#x00d1;</text>
+
+      <rect x="660" y="240" width="80" height="80" />
+      <text x="670" y="310" class="layer1">&#x006d;</text>
+      <text x="670" y="250" class="layer2">&#x004d;</text>
+      <text x="730" y="310" class="layer3">&#x00b5;</text>
+      <text x="730" y="250" class="layer4">&#x2122;</text>
+
+      <rect x="740" y="240" width="80" height="80" />
+      <text x="750" y="310" class="layer1">&#x002c;</text>
+      <text x="750" y="250" class="layer2">&#x003c;</text>
+      <text x="810" y="310" class="layer3">&#x2026;</text>
+      <text x="810" y="250" class="layer4">&#x2264;</text>
+
+      <rect x="820" y="240" width="80" height="80" />
+      <text x="830" y="310" class="layer1">&#x002e;</text>
+      <text x="830" y="250" class="layer2">&#x003e;</text>
+      <text x="890" y="310" class="layer3">&#x22c5;</text>
+      <text x="890" y="250" class="layer4">&#x2265;</text>
+
+      <rect x="900" y="240" width="80" height="80" />
+      <text x="910" y="310" class="layer1">&#x002f;</text>
+      <text x="910" y="250" class="layer2">&#x003f;</text>
+      <text x="970" y="310" class="layer3">&#x003f;</text>
+      <text x="970" y="250" class="layer4">&#x00bf;</text>
+
+      <rect x="980" y="240" width="220" height="80" />
+      <text x="990" y="250" class="layer2 function">Shift</text>
+
+      <!-- Fifth row -->
+
+      <rect x="0" y="320" width="120" height="80" />
+      <text x="10" y="350" class="function">Ctrl</text>
+
+      <rect x="120" y="320" width="100" height="80" />
+      <text x="130" y="350" class="function">Win</text>
+
+      <rect x="220" y="320" width="100" height="80" />
+      <text x="230" y="350" class="function">Alt</text>
+
+      <rect x="320" y="320" width="460" height="80" />
+      <text x="330" y="390" class="layer1 function">Space</text>
+      <text x="330" y="330" class="layer2 function">Space</text>
+      <text x="770" y="390" class="layer3 function">Narrow non-breaking space</text>
+      <text x="770" y="330" class="layer4 function">Non-breaking space</text>
+
+      <rect x="780" y="320" width="100" height="80" />
+      <text x="790" y="350" class="function">AltGr</text>
+
+      <rect x="880" y="320" width="100" height="80" />
+      <text x="890" y="350" class="function">Win</text>
+
+      <rect x="980" y="320" width="100" height="80" />
+      <text x="990" y="350" class="function">Menu</text>
+
+      <rect x="1080" y="320" width="120" height="80" />
+      <text x="1090" y="350" class="function">Ctrl</text>
+
+    </svg>
+    <h2 id="key-table">Key table</h2>
+    <table>
+      <colgroup>
+        <col class="level-group-left" />
+        <col />
+        <col class="level-group-right" />
+        <col class="level-group-left" />
+        <col class="level-group-right" />
+        <col class="level-group-left" />
+        <col class="level-group-right" />
+        <col class="level-group-left" />
+        <col class="level-group-right" />
+      <thead>
+        <tr>
+          <th colspan="3">Key</th>
+          <th colspan="2">ISO</th>
+          <th colspan="2">ANSI</th>
+          <th colspan="2">ACP</th>
+        </tr>
+        <tr>
+          <th>ISO</th>
+          <th>XKB</th>
+          <th>Win</th>
+          <th>Level 1</th>
+          <th>Level 2</th>
+          <th>Level 1</th>
+          <th>Level 2</th>
+          <th>Level 3</th>
+          <th>Level 4</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>E00</td>
+          <td>TLDE</td>
+          <td>SC029</td>
+          <td><span class="codepoint">U+0060</span> <span class="key-character">&#x0060;</span></td>
+          <td><span class="codepoint">U+00AC</span> <span class="key-character">&#x00ac;</span></td>
+          <td><span class="codepoint">U+0060</span> <span class="key-character">&#x0060;</span></td>
+          <td><span class="codepoint">U+007E</span> <span class="key-character">&#x007e;</span></td>
+          <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
+          <td><span class="codepoint">U+00B1</span> <span class="key-character">&#x00b1;</span></td>
+        </tr>
+        <tr>
+          <td>E01</td>
+          <td>AE01</td>
+          <td>SC002</td>
+          <td><span class="codepoint">U+0031</span> <span class="key-character">&#x0031;</span></td>
+          <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
+          <td><span class="codepoint">U+0031</span> <span class="key-character">&#x0031;</span></td>
+          <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
+          <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
+          <td><span class="codepoint">U+00A1</span> <span class="key-character">&#x00a1;</span></td>
+        </tr>
+        <tr>
+          <td>E02</td>
+          <td>AE02</td>
+          <td>SC003</td>
+          <td><span class="codepoint">U+0032</span> <span class="key-character">&#x0032;</span></td>
+          <td><span class="codepoint">U+0022</span> <span class="key-character">&#x0022;</span></td>
+          <td><span class="codepoint">U+0032</span> <span class="key-character">&#x0032;</span></td>
+          <td><span class="codepoint">U+0040</span> <span class="key-character">&#x0040;</span></td>
+          <td><span class="codepoint">U+00A2</span> <span class="key-character">&#x00a2;</span></td>
+          <td><span class="codepoint">U+00AB</span> <span class="key-character">&#x00ab;</span></td>
+        </tr>
+        <tr>
+          <td>E03</td>
+          <td>AE03</td>
+          <td>SC004</td>
+          <td><span class="codepoint">U+0033</span> <span class="key-character">&#x0033;</span></td>
+          <td><span class="codepoint">U+00A3</span> <span class="key-character">&#x00a3;</span></td>
+          <td><span class="codepoint">U+0033</span> <span class="key-character">&#x0033;</span></td>
+          <td><span class="codepoint">U+0023</span> <span class="key-character">&#x0023;</span></td>
+          <td><span class="codepoint">U+00A3</span> <span class="key-character">&#x00a3;</span></td>
+          <td><span class="codepoint">U+00BB</span> <span class="key-character">&#x00bb;</span></td>
+        </tr>
+        <tr>
+          <td>E04</td>
+          <td>AE04</td>
+          <td>SC005</td>
+          <td><span class="codepoint">U+0034</span> <span class="key-character">&#x0034;</span></td>
+          <td><span class="codepoint">U+0024</span> <span class="key-character">&#x0024;</span></td>
+          <td><span class="codepoint">U+0034</span> <span class="key-character">&#x0034;</span></td>
+          <td><span class="codepoint">U+0024</span> <span class="key-character">&#x0024;</span></td>
+          <td><span class="codepoint">U+20AC</span> <span class="key-character">&#x20ac;</span></td>
+          <td><span class="codepoint">U+2039</span> <span class="key-character">&#x2039;</span></td>
+        </tr>
+        <tr>
+          <td>E05</td>
+          <td>AE05</td>
+          <td>SC006</td>
+          <td><span class="codepoint">U+0035</span> <span class="key-character">&#x0035;</span></td>
+          <td><span class="codepoint">U+0025</span> <span class="key-character">&#x0025;</span></td>
+          <td><span class="codepoint">U+0035</span> <span class="key-character">&#x0035;</span></td>
+          <td><span class="codepoint">U+0025</span> <span class="key-character">&#x0025;</span></td>
+          <td><span class="codepoint">U+2030</span> <span class="key-character">&#x2030;</span></td>
+          <td><span class="codepoint">U+203A</span> <span class="key-character">&#x203a;</span></td>
+        </tr>
+        <tr>
+          <td>E06</td>
+          <td>AE06</td>
+          <td>SC007</td>
+          <td><span class="codepoint">U+0036</span> <span class="key-character">&#x0036;</span></td>
+          <td><span class="codepoint">U+005E</span> <span class="key-character">&#x005e;</span></td>
+          <td><span class="codepoint">U+0036</span> <span class="key-character">&#x0036;</span></td>
+          <td><span class="codepoint">U+005E</span> <span class="key-character">&#x005e;</span></td>
+          <td><span class="codepoint">U+221A</span> <span class="key-character">&#x221a;</span></td>
+          <td><span class="codepoint">U+2713</span> <span class="key-character">&#x2713;</span></td>
+        </tr>
+        <tr>
+          <td>E07</td>
+          <td>AE07</td>
+          <td>SC008</td>
+          <td><span class="codepoint">U+0037</span> <span class="key-character">&#x0037;</span></td>
+          <td><span class="codepoint">U+0026</span> <span class="key-character">&#x0026;</span></td>
+          <td><span class="codepoint">U+0037</span> <span class="key-character">&#x0037;</span></td>
+          <td><span class="codepoint">U+0026</span> <span class="key-character">&#x0026;</span></td>
+          <td><span class="codepoint">U+204A</span> <span class="key-character">&#x204a;</span></td>
+          <td><span class="codepoint">U+2717</span> <span class="key-character">&#x2717;</span></td>
+        </tr>
+        <tr>
+          <td>E08</td>
+          <td>AE08</td>
+          <td>SC009</td>
+          <td><span class="codepoint">U+0038</span> <span class="key-character">&#x0038;</span></td>
+          <td><span class="codepoint">U+002A</span> <span class="key-character">&#x002a;</span></td>
+          <td><span class="codepoint">U+0038</span> <span class="key-character">&#x0038;</span></td>
+          <td><span class="codepoint">U+002A</span> <span class="key-character">&#x002a;</span></td>
+          <td><span class="codepoint">U+00B0</span> <span class="key-character">&#x00b0;</span></td>
+          <td><span class="codepoint">U+2022</span> <span class="key-character">&#x2022;</span></td>
+        </tr>
+        <tr>
+          <td>E09</td>
+          <td>AE09</td>
+          <td>SC00A</td>
+          <td><span class="codepoint">U+0039</span> <span class="key-character">&#x0039;</span></td>
+          <td><span class="codepoint">U+0028</span> <span class="key-character">&#x0028;</span></td>
+          <td><span class="codepoint">U+0039</span> <span class="key-character">&#x0039;</span></td>
+          <td><span class="codepoint">U+0028</span> <span class="key-character">&#x0028;</span></td>
+          <td><span class="codepoint">U+00AA</span> <span class="key-character">&#x00aa;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>E10</td>
+          <td>AE10</td>
+          <td>SC00B</td>
+          <td><span class="codepoint">U+0030</span> <span class="key-character">&#x0030;</span></td>
+          <td><span class="codepoint">U+0029</span> <span class="key-character">&#x0029;</span></td>
+          <td><span class="codepoint">U+0030</span> <span class="key-character">&#x0030;</span></td>
+          <td><span class="codepoint">U+0029</span> <span class="key-character">&#x0029;</span></td>
+          <td><span class="codepoint">U+00BA</span> <span class="key-character">&#x00ba;</span></td>
+          <td><span class="codepoint">U+00D7</span> <span class="key-character">&#x00d7;</span></td>
+        </tr>
+        <tr>
+          <td>E11</td>
+          <td>AE11</td>
+          <td>SC00C</td>
+          <td><span class="codepoint">U+002D</span> <span class="key-character">&#x002d;</span></td>
+          <td><span class="codepoint">U+005F</span> <span class="key-character">&#x005f;</span></td>
+          <td><span class="codepoint">U+002D</span> <span class="key-character">&#x002d;</span></td>
+          <td><span class="codepoint">U+005F</span> <span class="key-character">&#x005f;</span></td>
+          <td><span class="codepoint">U+2212</span> <span class="key-character">&#x2212;</span></td>
+          <td><span class="codepoint">U+00F7</span> <span class="key-character">&#x00f7;</span></td>
+        </tr>
+        <tr>
+          <td>E12</td>
+          <td>AE12</td>
+          <td>SC00D</td>
+          <td><span class="codepoint">U+003D</span> <span class="key-character">&#x003d;</span></td>
+          <td><span class="codepoint">U+002B</span> <span class="key-character">&#x002b;</span></td>
+          <td><span class="codepoint">U+003D</span> <span class="key-character">&#x003d;</span></td>
+          <td><span class="codepoint">U+002B</span> <span class="key-character">&#x002b;</span></td>
+          <td><span class="codepoint">U+2248</span> <span class="key-character">&#x2248;</span></td>
+          <td><span class="codepoint">U+2260</span> <span class="key-character">&#x2260;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>D01</td>
+          <td>AD01</td>
+          <td>SC010</td>
+          <td><span class="codepoint">U+0071</span> <span class="key-character">&#x0071;</span></td>
+          <td><span class="codepoint">U+0051</span> <span class="key-character">&#x0051;</span></td>
+          <td><span class="codepoint">U+0071</span> <span class="key-character">&#x0071;</span></td>
+          <td><span class="codepoint">U+0051</span> <span class="key-character">&#x0051;</span></td>
+          <td><span class="codepoint">U+00E0</span> <span class="key-character">&#x00e0;</span></td>
+          <td><span class="codepoint">U+00C0</span> <span class="key-character">&#x00c0;</span></td>
+        </tr>
+        <tr>
+          <td>D02</td>
+          <td>AD02</td>
+          <td>SC011</td>
+          <td><span class="codepoint">U+0077</span> <span class="key-character">&#x0077;</span></td>
+          <td><span class="codepoint">U+0057</span> <span class="key-character">&#x0057;</span></td>
+          <td><span class="codepoint">U+0077</span> <span class="key-character">&#x0077;</span></td>
+          <td><span class="codepoint">U+0057</span> <span class="key-character">&#x0057;</span></td>
+          <td><span class="codepoint">U+00E9</span> <span class="key-character">&#x00e9;</span></td>
+          <td><span class="codepoint">U+00C9</span> <span class="key-character">&#x00c9;</span></td>
+        </tr>
+        <tr>
+          <td>D03</td>
+          <td>AD03</td>
+          <td>SC012</td>
+          <td><span class="codepoint">U+0065</span> <span class="key-character">&#x0065;</span></td>
+          <td><span class="codepoint">U+0045</span> <span class="key-character">&#x0045;</span></td>
+          <td><span class="codepoint">U+0065</span> <span class="key-character">&#x0065;</span></td>
+          <td><span class="codepoint">U+0045</span> <span class="key-character">&#x0045;</span></td>
+          <td><span class="codepoint">U+00EB</span> <span class="key-character">&#x00eb;</span></td>
+          <td><span class="codepoint">U+00CB</span> <span class="key-character">&#x00cb;</span></td>
+        </tr>
+        <tr>
+          <td>D04</td>
+          <td>AD04</td>
+          <td>SC013</td>
+          <td><span class="codepoint">U+0072</span> <span class="key-character">&#x0072;</span></td>
+          <td><span class="codepoint">U+0052</span> <span class="key-character">&#x0052;</span></td>
+          <td><span class="codepoint">U+0072</span> <span class="key-character">&#x0072;</span></td>
+          <td><span class="codepoint">U+0052</span> <span class="key-character">&#x0052;</span></td>
+          <td><span class="codepoint">U+00E8</span> <span class="key-character">&#x00e8;</span></td>
+          <td><span class="codepoint">U+00C8</span> <span class="key-character">&#x00c8;</span></td>
+        </tr>
+        <tr>
+          <td>D05</td>
+          <td>AD05</td>
+          <td>SC014</td>
+          <td><span class="codepoint">U+0074</span> <span class="key-character">&#x0074;</span></td>
+          <td><span class="codepoint">U+0054</span> <span class="key-character">&#x0054;</span></td>
+          <td><span class="codepoint">U+0074</span> <span class="key-character">&#x0074;</span></td>
+          <td><span class="codepoint">U+0054</span> <span class="key-character">&#x0054;</span></td>
+          <td><span class="codepoint">U+00AE</span> <span class="key-character">&#x00ae;</span></td>
+          <td><span class="codepoint">U+00A9</span> <span class="key-character">&#x00a9;</span></td>
+        </tr>
+        <tr>
+          <td>D06</td>
+          <td>AD06</td>
+          <td>SC015</td>
+          <td><span class="codepoint">U+0079</span> <span class="key-character">&#x0079;</span></td>
+          <td><span class="codepoint">U+0059</span> <span class="key-character">&#x0059;</span></td>
+          <td><span class="codepoint">U+0079</span> <span class="key-character">&#x0079;</span></td>
+          <td><span class="codepoint">U+0059</span> <span class="key-character">&#x0059;</span></td>
+          <td><span class="codepoint">U+00FB</span> <span class="key-character">&#x00fb;</span></td>
+          <td><span class="codepoint">U+00DB</span> <span class="key-character">&#x00db;</span></td>
+        </tr>
+        <tr>
+          <td>D07</td>
+          <td>AD07</td>
+          <td>SC016</td>
+          <td><span class="codepoint">U+0075</span> <span class="key-character">&#x0075;</span></td>
+          <td><span class="codepoint">U+0055</span> <span class="key-character">&#x0055;</span></td>
+          <td><span class="codepoint">U+0075</span> <span class="key-character">&#x0075;</span></td>
+          <td><span class="codepoint">U+0055</span> <span class="key-character">&#x0055;</span></td>
+          <td><span class="codepoint">U+00FC</span> <span class="key-character">&#x00fc;</span></td>
+          <td><span class="codepoint">U+00DC</span> <span class="key-character">&#x00dc;</span></td>
+        </tr>
+        <tr>
+          <td>D08</td>
+          <td>AD08</td>
+          <td>SC017</td>
+          <td><span class="codepoint">U+0069</span> <span class="key-character">&#x0069;</span></td>
+          <td><span class="codepoint">U+0049</span> <span class="key-character">&#x0049;</span></td>
+          <td><span class="codepoint">U+0069</span> <span class="key-character">&#x0069;</span></td>
+          <td><span class="codepoint">U+0049</span> <span class="key-character">&#x0049;</span></td>
+          <td><span class="codepoint">U+00EF</span> <span class="key-character">&#x00ef;</span></td>
+          <td><span class="codepoint">U+00CF</span> <span class="key-character">&#x00cf;</span></td>
+        </tr>
+        <tr>
+          <td>D09</td>
+          <td>AD09</td>
+          <td>SC018</td>
+          <td><span class="codepoint">U+006F</span> <span class="key-character">&#x006f;</span></td>
+          <td><span class="codepoint">U+004F</span> <span class="key-character">&#x004f;</span></td>
+          <td><span class="codepoint">U+006F</span> <span class="key-character">&#x006f;</span></td>
+          <td><span class="codepoint">U+004F</span> <span class="key-character">&#x004f;</span></td>
+          <td><span class="codepoint">U+00F6</span> <span class="key-character">&#x00f6;</span></td>
+          <td><span class="codepoint">U+00D6</span> <span class="key-character">&#x00d6;</span></td>
+        </tr>
+        <tr>
+          <td>D10</td>
+          <td>AD10</td>
+          <td>SC019</td>
+          <td><span class="codepoint">U+0070</span> <span class="key-character">&#x0070;</span></td>
+          <td><span class="codepoint">U+0050</span> <span class="key-character">&#x0050;</span></td>
+          <td><span class="codepoint">U+0070</span> <span class="key-character">&#x0070;</span></td>
+          <td><span class="codepoint">U+0050</span> <span class="key-character">&#x0050;</span></td>
+          <td><span class="codepoint">U+00B6</span> <span class="key-character">&#x00b6;</span></td>
+          <td><span class="codepoint">U+00A7</span> <span class="key-character">&#x00a7;</span></td>
+        </tr>
+        <tr>
+          <td>D11</td>
+          <td>AD11</td>
+          <td>SC01A</td>
+          <td><span class="codepoint">U+005B</span> <span class="key-character">&#x005b;</span></td>
+          <td><span class="codepoint">U+007B</span> <span class="key-character">&#x007b;</span></td>
+          <td><span class="codepoint">U+005B</span> <span class="key-character">&#x005b;</span></td>
+          <td><span class="codepoint">U+007B</span> <span class="key-character">&#x007b;</span></td>
+          <td><span class="codepoint">U+201C</span> <span class="key-character">&#x201c;</span></td>
+          <td><span class="codepoint">U+201E</span> <span class="key-character">&#x201e;</span></td>
+        </tr>
+        <tr>
+          <td>D12</td>
+          <td>AD12</td>
+          <td>SC01B</td>
+          <td><span class="codepoint">U+005D</span> <span class="key-character">&#x005d;</span></td>
+          <td><span class="codepoint">U+007D</span> <span class="key-character">&#x007d;</span></td>
+          <td><span class="codepoint">U+005D</span> <span class="key-character">&#x005d;</span></td>
+          <td><span class="codepoint">U+007D</span> <span class="key-character">&#x007d;</span></td>
+          <td><span class="codepoint">U+201D</span> <span class="key-character">&#x201d;</span></td>
+          <td><span class="codepoint">U+201A</span> <span class="key-character">&#x201a;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>C01</td>
+          <td>AC01</td>
+          <td>SC01E</td>
+          <td><span class="codepoint">U+0061</span> <span class="key-character">&#x0061;</span></td>
+          <td><span class="codepoint">U+0041</span> <span class="key-character">&#x0041;</span></td>
+          <td><span class="codepoint">U+0061</span> <span class="key-character">&#x0061;</span></td>
+          <td><span class="codepoint">U+0041</span> <span class="key-character">&#x0041;</span></td>
+          <td><span class="codepoint">U+00E4</span> <span class="key-character">&#x00e4;</span></td>
+          <td><span class="codepoint">U+00C4</span> <span class="key-character">&#x00c4;</span></td>
+        </tr>
+        <tr>
+          <td>C02</td>
+          <td>AC02</td>
+          <td>SC01F</td>
+          <td><span class="codepoint">U+0073</span> <span class="key-character">&#x0073;</span></td>
+          <td><span class="codepoint">U+0053</span> <span class="key-character">&#x0053;</span></td>
+          <td><span class="codepoint">U+0073</span> <span class="key-character">&#x0073;</span></td>
+          <td><span class="codepoint">U+0053</span> <span class="key-character">&#x0053;</span></td>
+          <td><span class="codepoint">U+00DF</span> <span class="key-character">&#x00df;</span></td>
+          <td><span class="codepoint">U+1E9E</span> <span class="key-character">&#x1e9e;</span></td>
+        </tr>
+        <tr>
+          <td>C03</td>
+          <td>AC03</td>
+          <td>SC020</td>
+          <td><span class="codepoint">U+0064</span> <span class="key-character">&#x0064;</span></td>
+          <td><span class="codepoint">U+0044</span> <span class="key-character">&#x0044;</span></td>
+          <td><span class="codepoint">U+0064</span> <span class="key-character">&#x0064;</span></td>
+          <td><span class="codepoint">U+0044</span> <span class="key-character">&#x0044;</span></td>
+          <td class="deadkey"><span class="codepoint">DEADDI</span> <span class="key-character">&#x00a8;&#x25cc;</span></td>
+          <td><span class="codepoint">U+2033</span> <span class="key-character">&#x2033;</span></td>
+        </tr>
+        <tr>
+          <td>C04</td>
+          <td>AC04</td>
+          <td>SC021</td>
+          <td><span class="codepoint">U+0066</span> <span class="key-character">&#x0066;</span></td>
+          <td><span class="codepoint">U+0046</span> <span class="key-character">&#x0046;</span></td>
+          <td><span class="codepoint">U+0066</span> <span class="key-character">&#x0066;</span></td>
+          <td><span class="codepoint">U+0046</span> <span class="key-character">&#x0046;</span></td>
+          <td class="deadkey"><span class="codepoint">DEADAC</span> <span class="key-character">&#x00b4;&#x25cc;</span></td>
+          <td><span class="codepoint">U+2032</span> <span class="key-character">&#x2032;</span></td>
+        </tr>
+        <tr>
+          <td>C05</td>
+          <td>AC05</td>
+          <td>SC022</td>
+          <td><span class="codepoint">U+0067</span> <span class="key-character">&#x0067;</span></td>
+          <td><span class="codepoint">U+0047</span> <span class="key-character">&#x0047;</span></td>
+          <td><span class="codepoint">U+0067</span> <span class="key-character">&#x0067;</span></td>
+          <td><span class="codepoint">U+0047</span> <span class="key-character">&#x0047;</span></td>
+          <td class="deadkey"><span class="codepoint">DEADMA</span> <span class="key-character">&#x00af;&#x25cc;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>C06</td>
+          <td>AC06</td>
+          <td>SC023</td>
+          <td><span class="codepoint">U+0068</span> <span class="key-character">&#x0068;</span></td>
+          <td><span class="codepoint">U+0048</span> <span class="key-character">&#x0048;</span></td>
+          <td><span class="codepoint">U+0068</span> <span class="key-character">&#x0068;</span></td>
+          <td><span class="codepoint">U+0048</span> <span class="key-character">&#x0048;</span></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>C07</td>
+          <td>AC07</td>
+          <td>SC024</td>
+          <td><span class="codepoint">U+006A</span> <span class="key-character">&#x006a;</span></td>
+          <td><span class="codepoint">U+004A</span> <span class="key-character">&#x004a;</span></td>
+          <td><span class="codepoint">U+006A</span> <span class="key-character">&#x006a;</span></td>
+          <td><span class="codepoint">U+004A</span> <span class="key-character">&#x004a;</span></td>
+          <td class="deadkey"><span class="codepoint">DEADGR</span> <span class="key-character">&#x0060;&#x25cc;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>C08</td>
+          <td>AC08</td>
+          <td>SC025</td>
+          <td><span class="codepoint">U+006B</span> <span class="key-character">&#x006b;</span></td>
+          <td><span class="codepoint">U+004B</span> <span class="key-character">&#x004b;</span></td>
+          <td><span class="codepoint">U+006B</span> <span class="key-character">&#x006b;</span></td>
+          <td><span class="codepoint">U+004B</span> <span class="key-character">&#x004b;</span></td>
+          <td class="deadkey"><span class="codepoint">DEADCI</span> <span class="key-character">&#x005e;&#x25cc;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>C09</td>
+          <td>AC09</td>
+          <td>SC026</td>
+          <td><span class="codepoint">U+006C</span> <span class="key-character">&#x006c;</span></td>
+          <td><span class="codepoint">U+004C</span> <span class="key-character">&#x004c;</span></td>
+          <td><span class="codepoint">U+006C</span> <span class="key-character">&#x006c;</span></td>
+          <td><span class="codepoint">U+004C</span> <span class="key-character">&#x004c;</span></td>
+          <td><span class="codepoint">U+00F4</span> <span class="key-character">&#x00f4;</span></td>
+          <td><span class="codepoint">U+00D4</span> <span class="key-character">&#x00d4;</span></td>
+        </tr>
+        <tr>
+          <td>C10</td>
+          <td>AC10</td>
+          <td>SC027</td>
+          <td><span class="codepoint">U+003B</span> <span class="key-character">&#x003b;</span></td>
+          <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
+          <td><span class="codepoint">U+003B</span> <span class="key-character">&#x003b;</span></td>
+          <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
+          <td><span class="codepoint">U+003B</span> <span class="key-character">&#x003b;</span></td>
+          <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
+        </tr>
+        <tr>
+          <td>C11</td>
+          <td>AC11</td>
+          <td>SC028</td>
+          <td><span class="codepoint">U+0027</span> <span class="key-character">&#x0027;</span></td>
+          <td><span class="codepoint">U+0040</span> <span class="key-character">&#x0040;</span></td>
+          <td><span class="codepoint">U+0027</span> <span class="key-character">&#x0027;</span></td>
+          <td><span class="codepoint">U+0022</span> <span class="key-character">&#x0022;</span></td>
+          <td><span class="codepoint">U+2019</span> <span class="key-character">&#x2019;</span></td>
+          <td><span class="codepoint">U+2018</span> <span class="key-character">&#x2018;</span></td>
+        </tr>
+        <tr>
+          <td>C12</td>
+          <td>BKSL</td>
+          <td>SC02B</td>
+          <td><span class="codepoint">U+0023</span> <span class="key-character">&#x0023;</span></td>
+          <td><span class="codepoint">U+007E</span> <span class="key-character">&#x007e;</span></td>
+          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
+          <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
+          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
+          <td></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>B00</td>
+          <td>LSGT</td>
+          <td>SC056</td>
+          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
+          <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
+          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
+          <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
+          <td><span class="codepoint">U+00EA</span> <span class="key-character">&#x00ea;</span></td>
+          <td><span class="codepoint">U+00CA</span> <span class="key-character">&#x00ca;</span></td>
+        </tr>
+        <tr>
+          <td>B01</td>
+          <td>AB01</td>
+          <td>SC02C</td>
+          <td><span class="codepoint">U+007A</span> <span class="key-character">&#x007a;</span></td>
+          <td><span class="codepoint">U+005A</span> <span class="key-character">&#x005a;</span></td>
+          <td><span class="codepoint">U+007A</span> <span class="key-character">&#x007a;</span></td>
+          <td><span class="codepoint">U+005A</span> <span class="key-character">&#x005a;</span></td>
+          <td><span class="codepoint">U+00E6</span> <span class="key-character">&#x00e6;</span></td>
+          <td><span class="codepoint">U+00C6</span> <span class="key-character">&#x00c6;</span></td>
+        </tr>
+        <tr>
+          <td>B02</td>
+          <td>AB02</td>
+          <td>SC02D</td>
+          <td><span class="codepoint">U+0078</span> <span class="key-character">&#x0078;</span></td>
+          <td><span class="codepoint">U+0058</span> <span class="key-character">&#x0058;</span></td>
+          <td><span class="codepoint">U+0078</span> <span class="key-character">&#x0078;</span></td>
+          <td><span class="codepoint">U+0058</span> <span class="key-character">&#x0058;</span></td>
+          <td><span class="codepoint">U+0153</span> <span class="key-character">&#x0153;</span></td>
+          <td><span class="codepoint">U+0152</span> <span class="key-character">&#x0152;</span></td>
+        </tr>
+        <tr>
+          <td>B03</td>
+          <td>AB03</td>
+          <td>SC02E</td>
+          <td><span class="codepoint">U+0063</span> <span class="key-character">&#x0063;</span></td>
+          <td><span class="codepoint">U+0043</span> <span class="key-character">&#x0043;</span></td>
+          <td><span class="codepoint">U+0063</span> <span class="key-character">&#x0063;</span></td>
+          <td><span class="codepoint">U+0043</span> <span class="key-character">&#x0043;</span></td>
+          <td><span class="codepoint">U+00E7</span> <span class="key-character">&#x00e7;</span></td>
+          <td><span class="codepoint">U+00C7</span> <span class="key-character">&#x00c7;</span></td>
+        </tr>
+        <tr>
+          <td>B04</td>
+          <td>AB04</td>
+          <td>SC02F</td>
+          <td><span class="codepoint">U+0076</span> <span class="key-character">&#x0076;</span></td>
+          <td><span class="codepoint">U+0056</span> <span class="key-character">&#x0056;</span></td>
+          <td><span class="codepoint">U+0076</span> <span class="key-character">&#x0076;</span></td>
+          <td><span class="codepoint">U+0056</span> <span class="key-character">&#x0056;</span></td>
+          <td><span class="codepoint">U+2014</span> <span class="key-character">&#x2014;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>B05</td>
+          <td>AB05</td>
+          <td>SC030</td>
+          <td><span class="codepoint">U+0062</span> <span class="key-character">&#x0062;</span></td>
+          <td><span class="codepoint">U+0042</span> <span class="key-character">&#x0042;</span></td>
+          <td><span class="codepoint">U+0062</span> <span class="key-character">&#x0062;</span></td>
+          <td><span class="codepoint">U+0042</span> <span class="key-character">&#x0042;</span></td>
+          <td><span class="codepoint">U+2013</span> <span class="key-character">&#x2013;</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>B06</td>
+          <td>AB06</td>
+          <td>SC031</td>
+          <td><span class="codepoint">U+006E</span> <span class="key-character">&#x006e;</span></td>
+          <td><span class="codepoint">U+004E</span> <span class="key-character">&#x004e;</span></td>
+          <td><span class="codepoint">U+006E</span> <span class="key-character">&#x006e;</span></td>
+          <td><span class="codepoint">U+004E</span> <span class="key-character">&#x004e;</span></td>
+          <td><span class="codepoint">U+00F1</span> <span class="key-character">&#x00f1;</span></td>
+          <td><span class="codepoint">U+00D1</span> <span class="key-character">&#x00d1;</span></td>
+        </tr>
+        <tr>
+          <td>B07</td>
+          <td>AB07</td>
+          <td>SC032</td>
+          <td><span class="codepoint">U+006D</span> <span class="key-character">&#x006d;</span></td>
+          <td><span class="codepoint">U+004D</span> <span class="key-character">&#x004d;</span></td>
+          <td><span class="codepoint">U+006D</span> <span class="key-character">&#x006d;</span></td>
+          <td><span class="codepoint">U+004D</span> <span class="key-character">&#x004d;</span></td>
+          <td><span class="codepoint">U+00B5</span> <span class="key-character">&#x00b5;</span></td>
+          <td><span class="codepoint">U+2122</span> <span class="key-character">&#x2122;</span></td>
+        </tr>
+        <tr>
+          <td>B08</td>
+          <td>AB08</td>
+          <td>SC033</td>
+          <td><span class="codepoint">U+002C</span> <span class="key-character">&#x002c;</span></td>
+          <td><span class="codepoint">U+003C</span> <span class="key-character">&#x003c;</span></td>
+          <td><span class="codepoint">U+002C</span> <span class="key-character">&#x002c;</span></td>
+          <td><span class="codepoint">U+003C</span> <span class="key-character">&#x003c;</span></td>
+          <td><span class="codepoint">U+2026</span> <span class="key-character">&#x2026;</span></td>
+          <td><span class="codepoint">U+2264</span> <span class="key-character">&#x2264;</span></td>
+        </tr>
+        <tr>
+          <td>B09</td>
+          <td>AB09</td>
+          <td>SC034</td>
+          <td><span class="codepoint">U+002E</span> <span class="key-character">&#x002e;</span></td>
+          <td><span class="codepoint">U+003E</span> <span class="key-character">&#x003e;</span></td>
+          <td><span class="codepoint">U+002E</span> <span class="key-character">&#x002e;</span></td>
+          <td><span class="codepoint">U+003E</span> <span class="key-character">&#x003e;</span></td>
+          <td><span class="codepoint">U+22C5</span> <span class="key-character">&#x22c5;</span></td>
+          <td><span class="codepoint">U+2265</span> <span class="key-character">&#x2265;</span></td>
+        </tr>
+        <tr>
+          <td>B10</td>
+          <td>AB10</td>
+          <td>SC035</td>
+          <td><span class="codepoint">U+002F</span> <span class="key-character">&#x002f;</span></td>
+          <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
+          <td><span class="codepoint">U+002F</span> <span class="key-character">&#x002f;</span></td>
+          <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
+          <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
+          <td><span class="codepoint">U+00BF</span> <span class="key-character">&#x00bf;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td>SPC</td>
+          <td>SPCE</td>
+          <td>SC039</td>
+          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
+          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
+          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
+          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
+          <td><span class="codepoint">U+202F</span> <span class="key-character">&#x202f;</span></td>
+          <td><span class="codepoint">U+00A0</span> <span class="key-character">&#x00a0;</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="dead-key-table">Dead key table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Dead key</th>
+          <th>Next key</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint"> </span></td>
+          <td><span class="codepoint">U+0027</span> <span class="key-character">&#x0027;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">A</span></td>
+          <td><span class="codepoint">U+00C1</span> <span class="key-character">&#x00c1;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">E</span></td>
+          <td><span class="codepoint">U+00C9</span> <span class="key-character">&#x00c9;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">I</span></td>
+          <td><span class="codepoint">U+00CD</span> <span class="key-character">&#x00cd;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">O</span></td>
+          <td><span class="codepoint">U+00D3</span> <span class="key-character">&#x00d3;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">U</span></td>
+          <td><span class="codepoint">U+00DA</span> <span class="key-character">&#x00da;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">W</span></td>
+          <td><span class="codepoint">U+1E82</span> <span class="key-character">&#x1e82;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">Y</span></td>
+          <td><span class="codepoint">U+00DD</span> <span class="key-character">&#x00dd;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">a</span></td>
+          <td><span class="codepoint">U+00E1</span> <span class="key-character">&#x00e1;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">e</span></td>
+          <td><span class="codepoint">U+00E9</span> <span class="key-character">&#x00e9;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">i</span></td>
+          <td><span class="codepoint">U+00ED</span> <span class="key-character">&#x00ed;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">o</span></td>
+          <td><span class="codepoint">U+00F3</span> <span class="key-character">&#x00f3;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">u</span></td>
+          <td><span class="codepoint">U+00FA</span> <span class="key-character">&#x00fa;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">w</span></td>
+          <td><span class="codepoint">U+1E83</span> <span class="key-character">&#x1e83;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADAC</span></td>
+          <td><span class="codepoint">y</span></td>
+          <td><span class="codepoint">U+00FD</span> <span class="key-character">&#x00fd;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint"> </span></td>
+          <td><span class="codepoint">U+005E</span> <span class="key-character">&#x005e;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">A</span></td>
+          <td><span class="codepoint">U+00C2</span> <span class="key-character">&#x00c2;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">E</span></td>
+          <td><span class="codepoint">U+00CA</span> <span class="key-character">&#x00ca;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">I</span></td>
+          <td><span class="codepoint">U+00CE</span> <span class="key-character">&#x00ce;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">O</span></td>
+          <td><span class="codepoint">U+00D4</span> <span class="key-character">&#x00d4;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">U</span></td>
+          <td><span class="codepoint">U+00DB</span> <span class="key-character">&#x00db;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">W</span></td>
+          <td><span class="codepoint">U+0174</span> <span class="key-character">&#x0174;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">Y</span></td>
+          <td><span class="codepoint">U+0176</span> <span class="key-character">&#x0176;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">a</span></td>
+          <td><span class="codepoint">U+00E2</span> <span class="key-character">&#x00e2;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">e</span></td>
+          <td><span class="codepoint">U+00EA</span> <span class="key-character">&#x00ea;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">i</span></td>
+          <td><span class="codepoint">U+00EE</span> <span class="key-character">&#x00ee;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">o</span></td>
+          <td><span class="codepoint">U+00F4</span> <span class="key-character">&#x00f4;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">u</span></td>
+          <td><span class="codepoint">U+00FB</span> <span class="key-character">&#x00fb;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">w</span></td>
+          <td><span class="codepoint">U+0175</span> <span class="key-character">&#x0175;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADCI</span></td>
+          <td><span class="codepoint">y</span></td>
+          <td><span class="codepoint">U+0177</span> <span class="key-character">&#x0177;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint"> </span></td>
+          <td><span class="codepoint">U+0022</span> <span class="key-character">&#x0022;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">A</span></td>
+          <td><span class="codepoint">U+00C4</span> <span class="key-character">&#x00c4;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">E</span></td>
+          <td><span class="codepoint">U+00CB</span> <span class="key-character">&#x00cb;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">I</span></td>
+          <td><span class="codepoint">U+00CF</span> <span class="key-character">&#x00cf;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">O</span></td>
+          <td><span class="codepoint">U+00D6</span> <span class="key-character">&#x00d6;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">U</span></td>
+          <td><span class="codepoint">U+00DC</span> <span class="key-character">&#x00dc;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">W</span></td>
+          <td><span class="codepoint">U+1E84</span> <span class="key-character">&#x1e84;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">Y</span></td>
+          <td><span class="codepoint">U+0178</span> <span class="key-character">&#x0178;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">a</span></td>
+          <td><span class="codepoint">U+00E4</span> <span class="key-character">&#x00e4;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">e</span></td>
+          <td><span class="codepoint">U+00EB</span> <span class="key-character">&#x00eb;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">i</span></td>
+          <td><span class="codepoint">U+00EF</span> <span class="key-character">&#x00ef;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">o</span></td>
+          <td><span class="codepoint">U+00F6</span> <span class="key-character">&#x00f6;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">u</span></td>
+          <td><span class="codepoint">U+00FC</span> <span class="key-character">&#x00fc;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">w</span></td>
+          <td><span class="codepoint">U+1E85</span> <span class="key-character">&#x1e85;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADDI</span></td>
+          <td><span class="codepoint">y</span></td>
+          <td><span class="codepoint">U+00FF</span> <span class="key-character">&#x00ff;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint"> </span></td>
+          <td><span class="codepoint">U+0060</span> <span class="key-character">&#x0060;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">A</span></td>
+          <td><span class="codepoint">U+00C0</span> <span class="key-character">&#x00c0;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">E</span></td>
+          <td><span class="codepoint">U+00C8</span> <span class="key-character">&#x00c8;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">I</span></td>
+          <td><span class="codepoint">U+00CC</span> <span class="key-character">&#x00cc;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">O</span></td>
+          <td><span class="codepoint">U+00D2</span> <span class="key-character">&#x00d2;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">U</span></td>
+          <td><span class="codepoint">U+00D9</span> <span class="key-character">&#x00d9;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">W</span></td>
+          <td><span class="codepoint">U+1E80</span> <span class="key-character">&#x1e80;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">Y</span></td>
+          <td><span class="codepoint">U+1EF2</span> <span class="key-character">&#x1ef2;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">a</span></td>
+          <td><span class="codepoint">U+00E0</span> <span class="key-character">&#x00e0;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">e</span></td>
+          <td><span class="codepoint">U+00E8</span> <span class="key-character">&#x00e8;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">i</span></td>
+          <td><span class="codepoint">U+00EC</span> <span class="key-character">&#x00ec;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">o</span></td>
+          <td><span class="codepoint">U+00F2</span> <span class="key-character">&#x00f2;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">u</span></td>
+          <td><span class="codepoint">U+00F9</span> <span class="key-character">&#x00f9;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">w</span></td>
+          <td><span class="codepoint">U+1E81</span> <span class="key-character">&#x1e81;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADGR</span></td>
+          <td><span class="codepoint">y</span></td>
+          <td><span class="codepoint">U+1EF3</span> <span class="key-character">&#x1ef3;</span></td>
+        </tr>
+      </tbody>
+      <tbody>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint"> </span></td>
+          <td><span class="codepoint">U+00AF</span> <span class="key-character">&#x00af;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">A</span></td>
+          <td><span class="codepoint">U+0100</span> <span class="key-character">&#x0100;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">E</span></td>
+          <td><span class="codepoint">U+0112</span> <span class="key-character">&#x0112;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">I</span></td>
+          <td><span class="codepoint">U+012A</span> <span class="key-character">&#x012a;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">O</span></td>
+          <td><span class="codepoint">U+014C</span> <span class="key-character">&#x014c;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">U</span></td>
+          <td><span class="codepoint">U+016A</span> <span class="key-character">&#x016a;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">Y</span></td>
+          <td><span class="codepoint">U+0232</span> <span class="key-character">&#x0232;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">a</span></td>
+          <td><span class="codepoint">U+0101</span> <span class="key-character">&#x0101;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">e</span></td>
+          <td><span class="codepoint">U+0113</span> <span class="key-character">&#x0113;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">i</span></td>
+          <td><span class="codepoint">U+012B</span> <span class="key-character">&#x012b;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">o</span></td>
+          <td><span class="codepoint">U+014D</span> <span class="key-character">&#x014d;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">u</span></td>
+          <td><span class="codepoint">U+016B</span> <span class="key-character">&#x016b;</span></td>
+        </tr>
+        <tr>
+          <td><span class="codepoint">DEADMA</span></td>
+          <td><span class="codepoint">y</span></td>
+          <td><span class="codepoint">U+0233</span> <span class="key-character">&#x0233;</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="code-reference-table">Code reference table</h2>
+    <h3 id="dead-keys">Dead keys</h3>
+    <ul class="unicode-table">
+      <li><span class="codepoint">DEADAC</span> DEAD KEY ACUTE ACCENT</li>
+      <li><span class="codepoint">DEADCI</span> DEAD KEY CIRCUMFLEX</li>
+      <li><span class="codepoint">DEADDI</span> DEAD KEY DIAERESIS</li>
+      <li><span class="codepoint">DEADGR</span> DEAD KEY GRAVE ACCENT</li>
+      <li><span class="codepoint">DEADMA</span> DEAD KEY MACRON</li>
+    </ul>
+    <h3 id="unicode">Unicode</h3>
+    <ul class="unicode-table">
+      <li><span class="codepoint">U+0020</span> SPACE</li>
+      <li><span class="codepoint">U+0021</span> EXCLAMATION MARK</li>
+      <li><span class="codepoint">U+0022</span> QUOTATION MARK</li>
+      <li><span class="codepoint">U+0023</span> NUMBER SIGN</li>
+      <li><span class="codepoint">U+0024</span> DOLLAR SIGN</li>
+      <li><span class="codepoint">U+0025</span> PERCENT SIGN</li>
+      <li><span class="codepoint">U+0026</span> AMPERSAND</li>
+      <li><span class="codepoint">U+0027</span> APOSTROPHE</li>
+      <li><span class="codepoint">U+0028</span> LEFT PARENTHESIS</li>
+      <li><span class="codepoint">U+0029</span> RIGHT PARENTHESIS</li>
+      <li><span class="codepoint">U+002A</span> ASTERISK</li>
+      <li><span class="codepoint">U+002B</span> PLUS SIGN</li>
+      <li><span class="codepoint">U+002C</span> COMMA</li>
+      <li><span class="codepoint">U+002D</span> HYPHEN-MINUS</li>
+      <li><span class="codepoint">U+002E</span> FULL STOP</li>
+      <li><span class="codepoint">U+002F</span> SLASH</li>
+      <li><span class="codepoint">U+0030</span> DIGIT ZERO</li>
+      <li><span class="codepoint">U+0031</span> DIGIT ONE</li>
+      <li><span class="codepoint">U+0032</span> DIGIT TWO</li>
+      <li><span class="codepoint">U+0033</span> DIGIT THREE</li>
+      <li><span class="codepoint">U+0034</span> DIGIT FOUR</li>
+      <li><span class="codepoint">U+0035</span> DIGIT FIVE</li>
+      <li><span class="codepoint">U+0036</span> DIGIT SIX</li>
+      <li><span class="codepoint">U+0037</span> DIGIT SEVEN</li>
+      <li><span class="codepoint">U+0038</span> DIGIT EIGHT</li>
+      <li><span class="codepoint">U+0039</span> DIGIT NINE</li>
+      <li><span class="codepoint">U+003A</span> COLON</li>
+      <li><span class="codepoint">U+003B</span> SEMICOLON</li>
+      <li><span class="codepoint">U+003C</span> LESS-THAN SIGN</li>
+      <li><span class="codepoint">U+003D</span> EQUAL SIGN</li>
+      <li><span class="codepoint">U+003E</span> GREATER-THAN SIGN</li>
+      <li><span class="codepoint">U+003F</span> QUESTION MARK</li>
+      <li><span class="codepoint">U+0040</span> AT SIGN</li>
+      <li><span class="codepoint">U+0041</span> LATIN CAPITAL LETTER A</li>
+      <li><span class="codepoint">U+0042</span> LATIN CAPITAL LETTER B</li>
+      <li><span class="codepoint">U+0043</span> LATIN CAPITAL LETTER C</li>
+      <li><span class="codepoint">U+0044</span> LATIN CAPITAL LETTER D</li>
+      <li><span class="codepoint">U+0045</span> LATIN CAPITAL LETTER E</li>
+      <li><span class="codepoint">U+0046</span> LATIN CAPITAL LETTER F</li>
+      <li><span class="codepoint">U+0047</span> LATIN CAPITAL LETTER G</li>
+      <li><span class="codepoint">U+0048</span> LATIN CAPITAL LETTER H</li>
+      <li><span class="codepoint">U+0049</span> LATIN CAPITAL LETTER I</li>
+      <li><span class="codepoint">U+004A</span> LATIN CAPITAL LETTER J</li>
+      <li><span class="codepoint">U+004B</span> LATIN CAPITAL LETTER K</li>
+      <li><span class="codepoint">U+004C</span> LATIN CAPITAL LETTER L</li>
+      <li><span class="codepoint">U+004D</span> LATIN CAPITAL LETTER M</li>
+      <li><span class="codepoint">U+004E</span> LATIN CAPITAL LETTER N</li>
+      <li><span class="codepoint">U+004F</span> LATIN CAPITAL LETTER O</li>
+      <li><span class="codepoint">U+0050</span> LATIN CAPITAL LETTER P</li>
+      <li><span class="codepoint">U+0051</span> LATIN CAPITAL LETTER Q</li>
+      <li><span class="codepoint">U+0052</span> LATIN CAPITAL LETTER R</li>
+      <li><span class="codepoint">U+0053</span> LATIN CAPITAL LETTER S</li>
+      <li><span class="codepoint">U+0054</span> LATIN CAPITAL LETTER T</li>
+      <li><span class="codepoint">U+0055</span> LATIN CAPITAL LETTER U</li>
+      <li><span class="codepoint">U+0056</span> LATIN CAPITAL LETTER V</li>
+      <li><span class="codepoint">U+0057</span> LATIN CAPITAL LETTER W</li>
+      <li><span class="codepoint">U+0058</span> LATIN CAPITAL LETTER X</li>
+      <li><span class="codepoint">U+0059</span> LATIN CAPITAL LETTER Y</li>
+      <li><span class="codepoint">U+005A</span> LATIN CAPITAL LETTER Z</li>
+      <li><span class="codepoint">U+005B</span> LEFT SQUARE BRACKET</li>
+      <li><span class="codepoint">U+005C</span> BACKSLASH</li>
+      <li><span class="codepoint">U+005D</span> RIGHT SQUARE BRACKET</li>
+      <li><span class="codepoint">U+005E</span> CIRCUMFLEX ACCENT</li>
+      <li><span class="codepoint">U+005F</span> LOW LINE</li>
+      <li><span class="codepoint">U+0060</span> GRAVE ACCENT</li>
+      <li><span class="codepoint">U+0061</span> LATIN SMALL LETTER A</li>
+      <li><span class="codepoint">U+0062</span> LATIN SMALL LETTER B</li>
+      <li><span class="codepoint">U+0063</span> LATIN SMALL LETTER C</li>
+      <li><span class="codepoint">U+0064</span> LATIN SMALL LETTER D</li>
+      <li><span class="codepoint">U+0065</span> LATIN SMALL LETTER E</li>
+      <li><span class="codepoint">U+0066</span> LATIN SMALL LETTER F</li>
+      <li><span class="codepoint">U+0067</span> LATIN SMALL LETTER G</li>
+      <li><span class="codepoint">U+0068</span> LATIN SMALL LETTER H</li>
+      <li><span class="codepoint">U+0069</span> LATIN SMALL LETTER I</li>
+      <li><span class="codepoint">U+006A</span> LATIN SMALL LETTER J</li>
+      <li><span class="codepoint">U+006B</span> LATIN SMALL LETTER K</li>
+      <li><span class="codepoint">U+006C</span> LATIN SMALL LETTER L</li>
+      <li><span class="codepoint">U+006D</span> LATIN SMALL LETTER M</li>
+      <li><span class="codepoint">U+006E</span> LATIN SMALL LETTER N</li>
+      <li><span class="codepoint">U+006F</span> LATIN SMALL LETTER O</li>
+      <li><span class="codepoint">U+0070</span> LATIN SMALL LETTER P</li>
+      <li><span class="codepoint">U+0071</span> LATIN SMALL LETTER Q</li>
+      <li><span class="codepoint">U+0072</span> LATIN SMALL LETTER R</li>
+      <li><span class="codepoint">U+0073</span> LATIN SMALL LETTER S</li>
+      <li><span class="codepoint">U+0074</span> LATIN SMALL LETTER T</li>
+      <li><span class="codepoint">U+0075</span> LATIN SMALL LETTER U</li>
+      <li><span class="codepoint">U+0076</span> LATIN SMALL LETTER V</li>
+      <li><span class="codepoint">U+0077</span> LATIN SMALL LETTER W</li>
+      <li><span class="codepoint">U+0078</span> LATIN SMALL LETTER X</li>
+      <li><span class="codepoint">U+0079</span> LATIN SMALL LETTER Y</li>
+      <li><span class="codepoint">U+007A</span> LATIN SMALL LETTER Z</li>
+      <li><span class="codepoint">U+007B</span> LEFT CURLY BRACKET</li>
+      <li><span class="codepoint">U+007C</span> VERTICAL BAR</li>
+      <li><span class="codepoint">U+007D</span> RIGHT CURLY BRACKET</li>
+      <li><span class="codepoint">U+007E</span> TILDE</li>
+      <li><span class="codepoint">U+00A0</span> NO-BREAK SPACE</li>
+      <li><span class="codepoint">U+00A1</span> INVERTED EXCLAMATION MARK</li>
+      <li><span class="codepoint">U+00A2</span> CENT SIGN</li>
+      <li><span class="codepoint">U+00A3</span> POUND SIGN</li>
+      <li><span class="codepoint">U+00A7</span> SECTION SIGN</li>
+      <li><span class="codepoint">U+00A9</span> COPYRIGHT SIGN</li>
+      <li><span class="codepoint">U+00AA</span> FEMININE ORDINAL INDICATOR</li>
+      <li><span class="codepoint">U+00AB</span> LEFT-POINTING DOUBLE ANGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+00AC</span> NOT SIGN</li>
+      <li><span class="codepoint">U+00AE</span> REGISTERED SIGN</li>
+      <li><span class="codepoint">U+00AF</span> MACRON</li>
+      <li><span class="codepoint">U+00B0</span> DEGREE SIGN</li>
+      <li><span class="codepoint">U+00B1</span> PLUS-MINUS SIGN</li>
+      <li><span class="codepoint">U+00B5</span> MICRO SIGN</li>
+      <li><span class="codepoint">U+00B6</span> PILCROW SIGN</li>
+      <li><span class="codepoint">U+00BA</span> MASCULINE ORDINAL INDICATOR</li>
+      <li><span class="codepoint">U+00BB</span> RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+00BF</span> INVERTED QUESTION MARK</li>
+      <li><span class="codepoint">U+00C0</span> LATIN CAPITAL LETTER A WITH GRAVE</li>
+      <li><span class="codepoint">U+00C1</span> LATIN CAPITAL LETTER A WITH ACUTE</li>
+      <li><span class="codepoint">U+00C2</span> LATIN CAPITAL LETTER A WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00C4</span> LATIN CAPITAL LETTER A WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00C6</span> LATIN CAPITAL LETTER AE</li>
+      <li><span class="codepoint">U+00C7</span> LATIN CAPITAL LETTER C WITH CEDILLA</li>
+      <li><span class="codepoint">U+00C8</span> LATIN CAPITAL LETTER E WITH GRAVE</li>
+      <li><span class="codepoint">U+00C9</span> LATIN CAPITAL LETTER E WITH ACUTE</li>
+      <li><span class="codepoint">U+00CA</span> LATIN CAPITAL LETTER E WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00CB</span> LATIN CAPITAL LETTER E WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00CC</span> LATIN CAPITAL LETTER I WITH GRAVE</li>
+      <li><span class="codepoint">U+00CD</span> LATIN CAPITAL LETTER I WITH ACUTE</li>
+      <li><span class="codepoint">U+00CE</span> LATIN CAPITAL LETTER I WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00CF</span> LATIN CAPITAL LETTER I WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00D1</span> LATIN CAPITAL LETTER N WITH TILDE</li>
+      <li><span class="codepoint">U+00D2</span> LATIN CAPITAL LETTER O WITH GRAVE</li>
+      <li><span class="codepoint">U+00D3</span> LATIN CAPITAL LETTER O WITH ACUTE</li>
+      <li><span class="codepoint">U+00D4</span> LATIN CAPITAL LETTER O WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00D6</span> LATIN CAPITAL LETTER O WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00D7</span> MULTIPLICATION SIGN</li>
+      <li><span class="codepoint">U+00D9</span> LATIN CAPITAL LETTER U WITH GRAVE</li>
+      <li><span class="codepoint">U+00DA</span> LATIN CAPITAL LETTER U WITH ACUTE</li>
+      <li><span class="codepoint">U+00DB</span> LATIN CAPITAL LETTER U WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00DC</span> LATIN CAPITAL LETTER U WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00DD</span> LATIN CAPITAL LETTER Y WITH ACUTE</li>
+      <li><span class="codepoint">U+00DF</span> LATIN SMALL LETTER SHARP S</li>
+      <li><span class="codepoint">U+00E0</span> LATIN SMALL LETTER A WITH GRAVE</li>
+      <li><span class="codepoint">U+00E1</span> LATIN SMALL LETTER A WITH ACUTE</li>
+      <li><span class="codepoint">U+00E2</span> LATIN SMALL LETTER A WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00E4</span> LATIN SMALL LETTER A WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00E6</span> LATIN SMALL LETTER AE</li>
+      <li><span class="codepoint">U+00E7</span> LATIN SMALL LETTER C WITH CEDILLA</li>
+      <li><span class="codepoint">U+00E8</span> LATIN SMALL LETTER E WITH GRAVE</li>
+      <li><span class="codepoint">U+00E9</span> LATIN SMALL LETTER E WITH ACUTE</li>
+      <li><span class="codepoint">U+00EA</span> LATIN SMALL LETTER E WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00EB</span> LATIN SMALL LETTER E WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00EC</span> LATIN SMALL LETTER I WITH GRAVE</li>
+      <li><span class="codepoint">U+00ED</span> LATIN SMALL LETTER I WITH ACUTE</li>
+      <li><span class="codepoint">U+00EE</span> LATIN SMALL LETTER I WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00EF</span> LATIN SMALL LETTER I WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00F1</span> LATIN SMALL LETTER N WITH TILDE</li>
+      <li><span class="codepoint">U+00F2</span> LATIN SMALL LETTER O WITH GRAVE</li>
+      <li><span class="codepoint">U+00F3</span> LATIN SMALL LETTER O WITH ACUTE</li>
+      <li><span class="codepoint">U+00F4</span> LATIN SMALL LETTER O WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00F6</span> LATIN SMALL LETTER O WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00F7</span> DIVISION SIGN</li>
+      <li><span class="codepoint">U+00F9</span> LATIN SMALL LETTER U WITH GRAVE</li>
+      <li><span class="codepoint">U+00FA</span> LATIN SMALL LETTER U WITH ACUTE</li>
+      <li><span class="codepoint">U+00FB</span> LATIN SMALL LETTER U WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+00FC</span> LATIN SMALL LETTER U WITH DIAERESIS</li>
+      <li><span class="codepoint">U+00FD</span> LATIN SMALL LETTER Y WITH ACUTE</li>
+      <li><span class="codepoint">U+00FF</span> LATIN SMALL LETTER Y WITH DIAERESIS</li>
+      <li><span class="codepoint">U+0100</span> LATIN CAPITAL LETTER A WITH MACRON</li>
+      <li><span class="codepoint">U+0101</span> LATIN SMALL LETTER A WITH MACRON</li>
+      <li><span class="codepoint">U+0112</span> LATIN CAPITAL LETTER E WITH MACRON</li>
+      <li><span class="codepoint">U+0113</span> LATIN SMALL LETTER E WITH MACRON</li>
+      <li><span class="codepoint">U+012A</span> LATIN CAPITAL LETTER I WITH MACRON</li>
+      <li><span class="codepoint">U+012B</span> LATIN SMALL LETTER I WITH MACRON</li>
+      <li><span class="codepoint">U+014C</span> LATIN CAPITAL LETTER O WITH MACRON</li>
+      <li><span class="codepoint">U+014D</span> LATIN SMALL LETTER O WITH MACRON</li>
+      <li><span class="codepoint">U+0152</span> LATIN CAPITAL LIGATURE OE</li>
+      <li><span class="codepoint">U+0153</span> LATIN SMALL LIGATURE OE</li>
+      <li><span class="codepoint">U+016A</span> LATIN CAPITAL LETTER U WITH MACRON</li>
+      <li><span class="codepoint">U+016B</span> LATIN SMALL LETTER U WITH MACRON</li>
+      <li><span class="codepoint">U+0174</span> LATIN CAPITAL LETTER W WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+0175</span> LATIN SMALL LETTER W WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+0176</span> LATIN CAPITAL LETTER Y WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+0177</span> LATIN SMALL LETTER Y WITH CIRCUMFLEX</li>
+      <li><span class="codepoint">U+0178</span> LATIN CAPITAL LETTER Y WITH DIAERESIS</li>
+      <li><span class="codepoint">U+0232</span> LATIN CAPITAL LETTER Y WITH MACRON</li>
+      <li><span class="codepoint">U+0233</span> LATIN SMALL LETTER Y WITH MACRON</li>
+      <li><span class="codepoint">U+0300</span> COMBINING GRAVE ACCENT</li>
+      <li><span class="codepoint">U+0301</span> COMBINING ACUTE ACCENT</li>
+      <li><span class="codepoint">U+0302</span> COMBINING CIRCUMFLEX ACCENT</li>
+      <li><span class="codepoint">U+0304</span> COMBINING MACRON</li>
+      <li><span class="codepoint">U+0308</span> COMBINING DIAERESIS</li>
+      <li><span class="codepoint">U+0327</span> COMBINING CEDILLA</li>
+      <li><span class="codepoint">U+1E80</span> LATIN CAPITAL LETTER W WITH GRAVE</li>
+      <li><span class="codepoint">U+1E81</span> LATIN SMALL LETTER W WITH GRAVE</li>
+      <li><span class="codepoint">U+1E82</span> LATIN CAPITAL LETTER W WITH ACUTE</li>
+      <li><span class="codepoint">U+1E83</span> LATIN SMALL LETTER W WITH ACUTE</li>
+      <li><span class="codepoint">U+1E84</span> LATIN CAPITAL LETTER W WITH DIAERESIS</li>
+      <li><span class="codepoint">U+1E85</span> LATIN SMALL LETTER W WITH DIAERESIS</li>
+      <li><span class="codepoint">U+1E9E</span> LATIN CAPITAL LETTER SHARP S</li>
+      <li><span class="codepoint">U+1EF2</span> LATIN CAPITAL LETTER Y WITH GRAVE</li>
+      <li><span class="codepoint">U+1EF3</span> LATIN SMALL LETTER Y WITH GRAVE</li>
+      <li><span class="codepoint">U+2013</span> EN DASH</li>
+      <li><span class="codepoint">U+2014</span> EM DASH</li>
+      <li><span class="codepoint">U+2018</span> LEFT SINGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+2019</span> RIGHT SINGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+201A</span> SINGLE LOW-9 QUOTATION MARK</li>
+      <li><span class="codepoint">U+201C</span> LEFT DOUBLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+201D</span> RIGHT DOUBLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+201E</span> DOUBLE LOW-9 QUOTATION MARK</li>
+      <li><span class="codepoint">U+2022</span> BULLET</li>
+      <li><span class="codepoint">U+2026</span> HORIZONTAL ELLIPSIS</li>
+      <li><span class="codepoint">U+202F</span> NARROW NO-BREAK SPACE</li>
+      <li><span class="codepoint">U+2030</span> PER MILLE SIGN</li>
+      <li><span class="codepoint">U+2032</span> PRIME</li>
+      <li><span class="codepoint">U+2033</span> DOUBLE PRIME</li>
+      <li><span class="codepoint">U+2039</span> SINGLE LEFT-POINTING ANGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+203A</span> SINGLE RIGHT-POINTING ANGLE QUOTATION MARK</li>
+      <li><span class="codepoint">U+204A</span> TIRONIAN SIGN ET</li>
+      <li><span class="codepoint">U+20AC</span> EURO SIGN</li>
+      <li><span class="codepoint">U+2122</span> TRADE MARK SIGN</li>
+      <li><span class="codepoint">U+2212</span> MINUS SIGN</li>
+      <li><span class="codepoint">U+221A</span> SQUARE ROOT</li>
+      <li><span class="codepoint">U+2248</span> ALMOST EQUAL TO</li>
+      <li><span class="codepoint">U+2260</span> NOT EQUAL TO</li>
+      <li><span class="codepoint">U+2264</span> LESS-THAN OR EQUAL TO</li>
+      <li><span class="codepoint">U+2265</span> GREATER-THAN OR EQUAL TO</li>
+      <li><span class="codepoint">U+22C5</span> DOT OPERATOR</li>
+      <li><span class="codepoint">U+2713</span> CHECK MARK</li>
+      <li><span class="codepoint">U+2717</span> BALLOT X</li>
+    </ul>
+  </body>
+</html>

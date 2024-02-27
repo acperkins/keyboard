@@ -1,0 +1,5 @@
+! option = symbols
+acp = +acp(basic)
+acp = +acp(us)
+
+! include %S/evdev
