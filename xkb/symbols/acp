@@ -3,59 +3,59 @@ xkb_symbols "basic" {
 
     name[Group1]= "ACP";
 
-    key <TLDE> { [ U0060,    U00AC,    U007C,    U00B1    ] };  // ` ¬ | ±
-    key <AE01> { [ U0031,    U0021,    U0021,    U00A1    ] };  // 1 ! ! ¡
-    key <AE02> { [ U0032,    U0022,    U00A2,    U00AB    ] };  // 2 " ¢ «
-    key <AE03> { [ U0033,    U00A3,    U00A3,    U00BB    ] };  // 3 £ £ »
-    key <AE04> { [ U0034,    U0024,    U20AC,    U2039    ] };  // 4 $ € ‹
-    key <AE05> { [ U0035,    U0025,    U2030,    U203A    ] };  // 5 % ‰ ›
-    key <AE06> { [ U0036,    U005E,    U221A,    U2713    ] };  // 6 ^ √ ✓
-    key <AE07> { [ U0037,    U0026,    U204A,    U2717    ] };  // 7 & ⁊ ✗
-    key <AE08> { [ U0038,    U002A,    U00B0,    U2022    ] };  // 8 * ° •
-    key <AE09> { [ U0039,    U0028,    U00AA,    NoSymbol ] };  // 9 ( ª
-    key <AE10> { [ U0030,    U0029,    U00BA,    U00D7    ] };  // 0 ) º ×
-    key <AE11> { [ U002D,    U005F,    U2212,    U00F7    ] };  // - _ − ÷
-    key <AE12> { [ U003D,    U002B,    U2248,    U2260    ] };  // + = ≈ ≠
+    key <TLDE> { [ U0060,           U00AC,           U007C,           U00B1           ] };  // ` ¬ | ±
+    key <AE01> { [ U0031,           U0021,           U0021,           U00A1           ] };  // 1 ! ! ¡
+    key <AE02> { [ U0032,           U0022,           U00A2,           U00AB           ] };  // 2 " ¢ «
+    key <AE03> { [ U0033,           U00A3,           U00A3,           U00BB           ] };  // 3 £ £ »
+    key <AE04> { [ U0034,           U0024,           U20AC,           U2039           ] };  // 4 $ € ‹
+    key <AE05> { [ U0035,           U0025,           U2030,           U203A           ] };  // 5 % ‰ ›
+    key <AE06> { [ U0036,           U005E,           U221A,           U2713           ] };  // 6 ^ √ ✓
+    key <AE07> { [ U0037,           U0026,           U204A,           U2717           ] };  // 7 & ⁊ ✗
+    key <AE08> { [ U0038,           U002A,           U00B0,           U2022           ] };  // 8 * ° •
+    key <AE09> { [ U0039,           U0028,           U00AA,           NoSymbol        ] };  // 9 ( ª
+    key <AE10> { [ U0030,           U0029,           U00BA,           U00D7           ] };  // 0 ) º ×
+    key <AE11> { [ U002D,           U005F,           U2212,           U00F7           ] };  // - _ − ÷
+    key <AE12> { [ U003D,           U002B,           U2248,           U2260           ] };  // + = ≈ ≠
 
-    key <AD01> { [ U0071,    U0051,    U00E0,    U00C0    ] };  // q Q à À
-    key <AD02> { [ U0077,    U0057,    U00E9,    U00C9    ] };  // w W é É
-    key <AD03> { [ U0065,    U0045,    U00EB,    U00CB    ] };  // e E ë Ë
-    key <AD04> { [ U0072,    U0052,    U00E8,    U00C8    ] };  // r R è È
-    key <AD05> { [ U0074,    U0054,    U00AE,    U00A9    ] };  // t T ® ©
-    key <AD06> { [ U0079,    U0059,    U00FB,    U00DB    ] };  // y Y û Û
-    key <AD07> { [ U0075,    U0055,    U00FC,    U00DC    ] };  // u U ü Ü
-    key <AD08> { [ U0069,    U0049,    U00EF,    U00CF    ] };  // i I ï Ï
-    key <AD09> { [ U006F,    U004F,    U00F6,    U00D6    ] };  // o O ö Ö
-    key <AD10> { [ U0070,    U0050,    U00B6,    U00A7    ] };  // p P ¶ §
-    key <AD11> { [ U005B,    U007B,    U201C,    U201E    ] };  // [ { “ „
-    key <AD12> { [ U005D,    U007D,    U201D,    U201A    ] };  // ] } ” ‚
+    key <AD01> { [ U0071,           U0051,           U00E0,           U00C0           ] };  // q Q à À
+    key <AD02> { [ U0077,           U0057,           U00E9,           U00C9           ] };  // w W é É
+    key <AD03> { [ U0065,           U0045,           U00EB,           U00CB           ] };  // e E ë Ë
+    key <AD04> { [ U0072,           U0052,           U00E8,           U00C8           ] };  // r R è È
+    key <AD05> { [ U0074,           U0054,           U00AE,           U00A9           ] };  // t T ® ©
+    key <AD06> { [ U0079,           U0059,           U00FB,           U00DB           ] };  // y Y û Û
+    key <AD07> { [ U0075,           U0055,           U00FC,           U00DC           ] };  // u U ü Ü
+    key <AD08> { [ U0069,           U0049,           U00EF,           U00CF           ] };  // i I ï Ï
+    key <AD09> { [ U006F,           U004F,           U00F6,           U00D6           ] };  // o O ö Ö
+    key <AD10> { [ U0070,           U0050,           U00B6,           U00A7           ] };  // p P ¶ §
+    key <AD11> { [ U005B,           U007B,           U201C,           U201E           ] };  // [ { “ „
+    key <AD12> { [ U005D,           U007D,           U201D,           U201A           ] };  // ] } ” ‚
 
-    key <AC01> { [ U0061,    U0041,    U00E4,    U00C4    ] };  // a A ä Ä
-    key <AC02> { [ U0073,    U0053,    U00DF,    U1E9E    ] };  // s S ß ẞ
-    key <AC03> { [ U0064,    U0044,    dead_diaeresis, U2033 ] };  // d D ¨◌ ″
-    key <AC04> { [ U0066,    U0046,    dead_acute, U2032 ] };  // f F ´◌ ′
-    key <AC05> { [ U0067,    U0047,    dead_macron, NoSymbol ] };  // g G ¯◌
-    key <AC06> { [ U0068,    U0048,    NoSymbol, NoSymbol ] };  // h H
-    key <AC07> { [ U006A,    U004A,    dead_grave, NoSymbol ] };  // j J `◌
-    key <AC08> { [ U006B,    U004B,    dead_circumflex , NoSymbol ] };  // k K ^◌
-    key <AC09> { [ U006C,    U004C,    U00F4,    U00D4    ] };  // l L ô Ô
-    key <AC10> { [ U003B,    U003A,    U003B,    U003A    ] };  // ; : ; :
-    key <AC11> { [ U0027,    U0040,    U2019,    U2018    ] };  // ' @ ’ ‘
-    key <BKSL> { [ U0023,    U007E,    U005C,    NoSymbol ] };  // # ~ \
+    key <AC01> { [ U0061,           U0041,           U00E4,           U00C4           ] };  // a A ä Ä
+    key <AC02> { [ U0073,           U0053,           U00DF,           U1E9E           ] };  // s S ß ẞ
+    key <AC03> { [ U0064,           U0044,           dead_diaeresis,  U2033           ] };  // d D ¨◌ ″
+    key <AC04> { [ U0066,           U0046,           dead_acute,      U2032           ] };  // f F ´◌ ′
+    key <AC05> { [ U0067,           U0047,           dead_macron,     NoSymbol        ] };  // g G ¯◌
+    key <AC06> { [ U0068,           U0048,           NoSymbol,        NoSymbol        ] };  // h H
+    key <AC07> { [ U006A,           U004A,           dead_grave,      NoSymbol        ] };  // j J `◌
+    key <AC08> { [ U006B,           U004B,           dead_circumflex, NoSymbol        ] };  // k K ^◌
+    key <AC09> { [ U006C,           U004C,           U00F4,           U00D4           ] };  // l L ô Ô
+    key <AC10> { [ U003B,           U003A,           U003B,           U003A           ] };  // ; : ; :
+    key <AC11> { [ U0027,           U0040,           U2019,           U2018           ] };  // ' @ ’ ‘
+    key <BKSL> { [ U0023,           U007E,           U005C,           NoSymbol        ] };  // # ~ \
 
-    key <LSGT> { [ U005C,    U007C,    U00EA,    U00CA    ] };  // \ | ê Ê
-    key <AB01> { [ U007A,    U005A,    U00E6,    U00C6    ] };  // z Z æ Æ
-    key <AB02> { [ U0078,    U0058,    U0153,    U0152    ] };  // x X œ Œ
-    key <AB03> { [ U0063,    U0043,    U00E7,    U00C7    ] };  // c C ç Ç
-    key <AB04> { [ U0076,    U0056,    U2014,    NoSymbol ] };  // v V —
-    key <AB05> { [ U0062,    U0042,    U2013,    NoSymbol ] };  // b B –
-    key <AB06> { [ U006E,    U004E,    U00F1,    U00D1    ] };  // n N ñ Ñ
-    key <AB07> { [ U006D,    U004D,    U00B5,    U2122    ] };  // m M µ ™
-    key <AB08> { [ U002C,    U003C,    U2026,    U2264    ] };  // , < … ≤
-    key <AB09> { [ U002E,    U003E,    U22C5,    U2265    ] };  // . > ⋅ ≥
-    key <AB10> { [ U002F,    U003F,    U003F,    U00BF    ] };  // / ? ? ¿
+    key <LSGT> { [ U005C,           U007C,           U00EA,           U00CA           ] };  // \ | ê Ê
+    key <AB01> { [ U007A,           U005A,           U00E6,           U00C6           ] };  // z Z æ Æ
+    key <AB02> { [ U0078,           U0058,           U0153,           U0152           ] };  // x X œ Œ
+    key <AB03> { [ U0063,           U0043,           U00E7,           U00C7           ] };  // c C ç Ç
+    key <AB04> { [ U0076,           U0056,           U2014,           NoSymbol        ] };  // v V —
+    key <AB05> { [ U0062,           U0042,           U2013,           NoSymbol        ] };  // b B –
+    key <AB06> { [ U006E,           U004E,           U00F1,           U00D1           ] };  // n N ñ Ñ
+    key <AB07> { [ U006D,           U004D,           U00B5,           U2122           ] };  // m M µ ™
+    key <AB08> { [ U002C,           U003C,           U2026,           U2264           ] };  // , < … ≤
+    key <AB09> { [ U002E,           U003E,           U22C5,           U2265           ] };  // . > ⋅ ≥
+    key <AB10> { [ U002F,           U003F,           U003F,           U00BF           ] };  // / ? ? ¿
 
-    key <SPCE> { [ U0020,    U0020,    U202F,    U00A0    ] };  // [space] [space] [nnbsp] [nbsp]
+    key <SPCE> { [ U0020,           U0020,           U202F,           U00A0           ] };  // [space] [space] [nnbsp] [nbsp]
 
     include "level3(ralt_switch)"
 };
@@ -66,11 +66,11 @@ xkb_symbols "us" {
     include "acp(basic)"
     name[Group1]= "ACP (US)";
 
-    key <TLDE> { [ U0060,    U007E,    U007C,    U00AC    ] };  // ` ~ | ±
-    key <AE02> { [ U0032,    U0040,    U00A2,    U00AB    ] };  // 2 @ ¢ «
-    key <AE03> { [ U0033,    U0023,    U00A3,    U00BB    ] };  // 3 # £ »
-    key <AC11> { [ U0027,    U0022,    U2019,    U2018    ] };  // ' " ’ ‘
-    key <BKSL> { [ U005C,    U007C,    U005C,    NoSymbol ] };  // \ | \
+    key <TLDE> { [ U0060,           U007E,           U007C,           U00AC           ] };  // ` ~ | ±
+    key <AE02> { [ U0032,           U0040,           U00A2,           U00AB           ] };  // 2 @ ¢ «
+    key <AE03> { [ U0033,           U0023,           U00A3,           U00BB           ] };  // 3 # £ »
+    key <AC11> { [ U0027,           U0022,           U2019,           U2018           ] };  // ' " ’ ‘
+    key <BKSL> { [ U005C,           U007C,           U005C,           NoSymbol        ] };  // \ | \
 
     include "level3(ralt_switch)"
 };
