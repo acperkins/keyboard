@@ -315,21 +315,21 @@ dead_macron := Map.Call(
 
 
 ; D11 - SC01A
-; ’
->!SC01A::Send "{U+2019}"
-<^>!SC01A::Send "{U+2019}"
 ; ‘
->!+SC01A::Send "{U+2018}"
-<^>!+SC01A::Send "{U+2018}"
+>!SC01A::Send "{U+2018}"
+<^>!SC01A::Send "{U+2018}"
+; “
+>!+SC01A::Send "{U+201C}"
+<^>!+SC01A::Send "{U+201C}"
 
 
 ; D12 - SC01B
+; ’
+>!SC01B::Send "{U+2019}"
+<^>!SC01B::Send "{U+2019}"
 ; ”
->!SC01B::Send "{U+201D}"
-<^>!SC01B::Send "{U+201D}"
-; “
->!+SC01B::Send "{U+201C}"
-<^>!+SC01B::Send "{U+201C}"
+>!+SC01B::Send "{U+201D}"
+<^>!+SC01B::Send "{U+201D}"
 
 
 

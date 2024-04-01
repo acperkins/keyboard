@@ -27,8 +27,8 @@ xkb_symbols "basic" {
     key <AD08> { [ U0069,           U0049,           U00EF,           U00CF           ] };  // i I ï Ï
     key <AD09> { [ U006F,           U004F,           U00F6,           U00D6           ] };  // o O ö Ö
     key <AD10> { [ U0070,           U0050,           U00B6,           U00A7           ] };  // p P ¶ §
-    key <AD11> { [ U005B,           U007B,           U2019,           U2018           ] };  // [ { ’ ‘
-    key <AD12> { [ U005D,           U007D,           U201D,           U201C           ] };  // ] } ” “
+    key <AD11> { [ U005B,           U007B,           U2018,           U201C           ] };  // [ { ‘ “
+    key <AD12> { [ U005D,           U007D,           U2019,           U201D           ] };  // ] } ’ ”
 
     key <AC01> { [ U0061,           U0041,           U00E4,           U00C4           ] };  // a A ä Ä
     key <AC02> { [ U0073,           U0053,           U00DF,           U1E9E           ] };  // s S ß ẞ
@@ -69,7 +69,7 @@ xkb_symbols "us" {
     key <TLDE> { [ U0060,           U007E,           U007C,           U00AC           ] };  // ` ~ | ±
     key <AE02> { [ U0032,           U0040,           U00A2,           U00AB           ] };  // 2 @ ¢ «
     key <AE03> { [ U0033,           U0023,           U00A3,           U00BB           ] };  // 3 # £ »
-    key <AC11> { [ U0027,           U0022,           U2019,           U2018           ] };  // ' " ’ ‘
+    key <AC11> { [ U0027,           U0022,           U201E,           U201A           ] };  // ' " „ ‚
     key <BKSL> { [ U005C,           U007C,           U005C,           NoSymbol        ] };  // \ | \
 
     include "level3(ralt_switch)"
