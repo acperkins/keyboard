@@ -40,7 +40,7 @@ xkb_symbols "basic" {
     key <AC08> { [ U006B,           U004B,           dead_circumflex, NoSymbol        ] };  // k K ^◌
     key <AC09> { [ U006C,           U004C,           U00F4,           U00D4           ] };  // l L ô Ô
     key <AC10> { [ U003B,           U003A,           U003B,           U003A           ] };  // ; : ; :
-    key <AC11> { [ U0027,           U0040,           U201E,           U201A           ] };  // ' @ „ ‚
+    key <AC11> { [ U0027,           U0040,           U201A,           U201E           ] };  // ' @ ‚ „
     key <BKSL> { [ U0023,           U007E,           U005C,           NoSymbol        ] };  // # ~ \
 
     key <LSGT> { [ U005C,           U007C,           U00EA,           U00CA           ] };  // \ | ê Ê
@@ -69,7 +69,7 @@ xkb_symbols "us" {
     key <TLDE> { [ U0060,           U007E,           U007C,           U00AC           ] };  // ` ~ | ±
     key <AE02> { [ U0032,           U0040,           U00A2,           U00AB           ] };  // 2 @ ¢ «
     key <AE03> { [ U0033,           U0023,           U00A3,           U00BB           ] };  // 3 # £ »
-    key <AC11> { [ U0027,           U0022,           U201E,           U201A           ] };  // ' " „ ‚
+    key <AC11> { [ U0027,           U0022,           U201A,           U201E           ] };  // ' " ‚ „
     key <BKSL> { [ U005C,           U007C,           U005C,           NoSymbol        ] };  // \ | \
 
     include "level3(ralt_switch)"

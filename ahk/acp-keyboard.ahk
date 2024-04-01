@@ -515,12 +515,12 @@ dead_macron := Map.Call(
 
 
 ; C11 - SC028
-; „
->!SC028::Send "{U+201E}"
-<^>!SC028::Send "{U+201E}"
 ; ‚
->!+SC028::Send "{U+201A}"
-<^>!+SC028::Send "{U+201A}"
+>!SC028::Send "{U+201A}"
+<^>!SC028::Send "{U+201A}"
+; „
+>!+SC028::Send "{U+201E}"
+<^>!+SC028::Send "{U+201E}"
 
 
 ; C12 - SC02B
