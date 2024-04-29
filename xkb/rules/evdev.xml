@@ -8,21 +8,12 @@
         <shortDescription>acp</shortDescription>
         <description>ACP</description>
         <countryList>
-          <iso3166Id>GB</iso3166Id>
           <iso3166Id>US</iso3166Id>
         </countryList>
         <languageList>
           <iso639Id>eng</iso639Id>
         </languageList>
       </configItem>
-      <variantList>
-        <variant>
-          <configItem>
-            <name>us</name>
-            <description>ACP (US)</description>
-          </configItem>
-        </variant>
-      </variantList>
     </layout>
   </layoutList>
 </xkbConfigRegistry>
