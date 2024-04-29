@@ -42,13 +42,13 @@
     </style>
   </head>
   <body>
-    <h1>ACP Keyboard v3.3.0</h1>
+    <h1>ACP Keyboard v4.0.0</h1>
     <ol>
       <li><a href="#rationale">Rationale</a></li>
       <li><a href="#images">Images</a></li>
       <ol>
-        <li><a href="#image-iso">UK ISO</a></li>
-        <li><a href="#image-ansi">US ANSI</a></li>
+        <li><a href="#image-iso">ISO</a></li>
+        <li><a href="#image-ansi">ANSI</a></li>
       </ol>
       <li><a href="#key-table">Key table</a></li>
       <li><a href="#dead-key-table">Dead key table</a></li>
@@ -76,8 +76,8 @@
       <li>No more than four levels (normal; Shift; AltGr; and Shift+AltGr).</li>
       <li>Keys should be grouped sensibly: the degree sign in °C is preceded by
         a narrow non-breaking space, so they should be on the same level.</li>
-      <li>The main layout should be based on the UK ISO layout, but it should
-        also support the US ANSI layout with one key fewer.</li>
+      <li>The main layout should be based on the US ANSI layout, but it should
+        also support an ISO layout with one key extra.</li>
       <li>It should be able to be used without Administrative permissions. This
         led me to AutoHotKey on Windows, and a <tt>$HOME</tt>-based XKB layout
         on Linux.</li>
@@ -91,9 +91,9 @@
     </ol>
 
     <h2 id="images">Images</h2>
-    <h3 id="image-iso">UK ISO</h3>
+    <h3 id="image-iso">ISO</h3>
     <svg viewBox="0 0 1200 400" width="900" height="300" role="img">
-      <title>UK ISO keyboard layout</title>
+      <title>ISO keyboard layout</title>
       <defs>
         <style>
           rect, .iso-return {
@@ -138,7 +138,7 @@
 
       <rect x="0" y="0" width="80" height="80" />
       <text x="10" y="70" class="layer1">&#x0060;</text>
-      <text x="10" y="10" class="layer2">&#x00ac;</text>
+      <text x="10" y="10" class="layer2">&#x007e;</text>
       <text x="70" y="70" class="layer3">&#x007c;</text>
       <text x="70" y="10" class="layer4">&#x00b1;</text>
 
@@ -150,26 +150,26 @@
 
       <rect x="160" y="0" width="80" height="80" />
       <text x="170" y="70" class="layer1">&#x0032;</text>
-      <text x="170" y="10" class="layer2">&#x0022;</text>
-      <text x="230" y="70" class="layer3">&#x00a2;</text>
+      <text x="170" y="10" class="layer2">&#x0040;</text>
+      <text x="230" y="70" class="layer3">&#x2030;</text>
       <text x="230" y="10" class="layer4">&#x00ab;</text>
 
       <rect x="240" y="0" width="80" height="80" />
       <text x="250" y="70" class="layer1">&#x0033;</text>
-      <text x="250" y="10" class="layer2">&#x00a3;</text>
+      <text x="250" y="10" class="layer2">&#x0023;</text>
       <text x="310" y="70" class="layer3">&#x00a3;</text>
       <text x="310" y="10" class="layer4">&#x00bb;</text>
 
       <rect x="320" y="0" width="80" height="80" />
       <text x="330" y="70" class="layer1">&#x0034;</text>
       <text x="330" y="10" class="layer2">&#x0024;</text>
-      <text x="390" y="70" class="layer3">&#x20ac;</text>
+      <text x="390" y="70" class="layer3">&#x00a2;</text>
       <text x="390" y="10" class="layer4">&#x2039;</text>
 
       <rect x="400" y="0" width="80" height="80" />
       <text x="410" y="70" class="layer1">&#x0035;</text>
       <text x="410" y="10" class="layer2">&#x0025;</text>
-      <text x="470" y="70" class="layer3">&#x2030;</text>
+      <text x="470" y="70" class="layer3">&#x20ac;</text>
       <text x="470" y="10" class="layer4">&#x203a;</text>
 
       <rect x="480" y="0" width="80" height="80" />
@@ -361,14 +361,14 @@
 
       <rect x="940" y="160" width="80" height="80" />
       <text x="950" y="230" class="layer1">&#x0027;</text>
-      <text x="950" y="170" class="layer2">&#x0040;</text>
+      <text x="950" y="170" class="layer2">&#x0022;</text>
       <text x="1010" y="230" class="layer3">&#x201a;</text>
       <text x="1010" y="170" class="layer4">&#x201e;</text>
 
       <rect x="1020" y="160" width="80" height="80" />
-      <text x="1030" y="230" class="layer1">&#x0023;</text>
-      <text x="1030" y="170" class="layer2">&#x007e;</text>
-      <text x="1090" y="230" class="layer3">&#x005c;</text>
+      <text x="1030" y="230" class="layer1">&#x005c;</text>
+      <text x="1030" y="170" class="layer2">&#x007c;</text>
+      <text x="1090" y="230" class="layer3"></text>
       <text x="1090" y="170" class="layer4"></text>
 
       <!-- Fourth row -->
@@ -379,8 +379,8 @@
       <rect x="100" y="240" width="80" height="80" />
       <text x="110" y="310" class="layer1">&#x005c;</text>
       <text x="110" y="250" class="layer2">&#x007c;</text>
-      <text x="170" y="310" class="layer3">&#x00ea;</text>
-      <text x="170" y="250" class="layer4">&#x00ca;</text>
+      <text x="170" y="310" class="layer3"></text>
+      <text x="170" y="250" class="layer4"></text>
 
       <rect x="180" y="240" width="80" height="80" />
       <text x="190" y="310" class="layer1">&#x007a;</text>
@@ -485,9 +485,9 @@
       <text x="1090" y="110" class="function">Return</text>
 
     </svg>
-    <h3 id="image-ansi">US ANSI</h3>
+    <h3 id="image-ansi">ANSI</h3>
     <svg viewBox="0 0 1200 400" width="900" height="300" role="img">
-      <title>US ANSI keyboard layout</title>
+      <title>ANSI keyboard layout</title>
       <defs>
         <style>
           rect, .iso-return {
@@ -545,7 +545,7 @@
       <rect x="160" y="0" width="80" height="80" />
       <text x="170" y="70" class="layer1">&#x0032;</text>
       <text x="170" y="10" class="layer2">&#x0040;</text>
-      <text x="230" y="70" class="layer3">&#x00a2;</text>
+      <text x="230" y="70" class="layer3">&#x2030;</text>
       <text x="230" y="10" class="layer4">&#x00ab;</text>
 
       <rect x="240" y="0" width="80" height="80" />
@@ -557,13 +557,13 @@
       <rect x="320" y="0" width="80" height="80" />
       <text x="330" y="70" class="layer1">&#x0034;</text>
       <text x="330" y="10" class="layer2">&#x0024;</text>
-      <text x="390" y="70" class="layer3">&#x20ac;</text>
+      <text x="390" y="70" class="layer3">&#x00a2;</text>
       <text x="390" y="10" class="layer4">&#x2039;</text>
 
       <rect x="400" y="0" width="80" height="80" />
       <text x="410" y="70" class="layer1">&#x0035;</text>
       <text x="410" y="10" class="layer2">&#x0025;</text>
-      <text x="470" y="70" class="layer3">&#x2030;</text>
+      <text x="470" y="70" class="layer3">&#x20ac;</text>
       <text x="470" y="10" class="layer4">&#x203a;</text>
 
       <rect x="480" y="0" width="80" height="80" />
@@ -691,7 +691,7 @@
       <rect x="1080" y="80" width="120" height="80" />
       <text x="1090" y="150" class="layer1">&#x005c;</text>
       <text x="1090" y="90" class="layer2">&#x007c;</text>
-      <text x="1190" y="150" class="layer3">&#x005c;</text>
+      <text x="1190" y="150" class="layer3"></text>
       <text x="1190" y="90" class="layer4"></text>
 
       <!-- Third row -->
@@ -876,21 +876,16 @@
         <col class="level-group-right" />
         <col class="level-group-left" />
         <col class="level-group-right" />
-        <col class="level-group-left" />
-        <col class="level-group-right" />
       <thead>
         <tr>
           <th colspan="3">Key</th>
-          <th colspan="2">ISO</th>
-          <th colspan="2">ANSI</th>
+          <th colspan="2">US</th>
           <th colspan="2">ACP</th>
         </tr>
         <tr>
           <th>ISO</th>
           <th>XKB</th>
           <th>Win</th>
-          <th>Level 1</th>
-          <th>Level 2</th>
           <th>Level 1</th>
           <th>Level 2</th>
           <th>Level 3</th>
@@ -903,8 +898,6 @@
           <td>TLDE</td>
           <td>SC029</td>
           <td><span class="codepoint">U+0060</span> <span class="key-character">&#x0060;</span></td>
-          <td><span class="codepoint">U+00AC</span> <span class="key-character">&#x00ac;</span></td>
-          <td><span class="codepoint">U+0060</span> <span class="key-character">&#x0060;</span></td>
           <td><span class="codepoint">U+007E</span> <span class="key-character">&#x007e;</span></td>
           <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
           <td><span class="codepoint">U+00B1</span> <span class="key-character">&#x00b1;</span></td>
@@ -915,8 +908,6 @@
           <td>SC002</td>
           <td><span class="codepoint">U+0031</span> <span class="key-character">&#x0031;</span></td>
           <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
-          <td><span class="codepoint">U+0031</span> <span class="key-character">&#x0031;</span></td>
-          <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
           <td><span class="codepoint">U+0021</span> <span class="key-character">&#x0021;</span></td>
           <td><span class="codepoint">U+00A1</span> <span class="key-character">&#x00a1;</span></td>
         </tr>
@@ -925,18 +916,14 @@
           <td>AE02</td>
           <td>SC003</td>
           <td><span class="codepoint">U+0032</span> <span class="key-character">&#x0032;</span></td>
-          <td><span class="codepoint">U+0022</span> <span class="key-character">&#x0022;</span></td>
-          <td><span class="codepoint">U+0032</span> <span class="key-character">&#x0032;</span></td>
           <td><span class="codepoint">U+0040</span> <span class="key-character">&#x0040;</span></td>
-          <td><span class="codepoint">U+00A2</span> <span class="key-character">&#x00a2;</span></td>
+          <td><span class="codepoint">U+2030</span> <span class="key-character">&#x2030;</span></td>
           <td><span class="codepoint">U+00AB</span> <span class="key-character">&#x00ab;</span></td>
         </tr>
         <tr>
           <td>E03</td>
           <td>AE03</td>
           <td>SC004</td>
-          <td><span class="codepoint">U+0033</span> <span class="key-character">&#x0033;</span></td>
-          <td><span class="codepoint">U+00A3</span> <span class="key-character">&#x00a3;</span></td>
           <td><span class="codepoint">U+0033</span> <span class="key-character">&#x0033;</span></td>
           <td><span class="codepoint">U+0023</span> <span class="key-character">&#x0023;</span></td>
           <td><span class="codepoint">U+00A3</span> <span class="key-character">&#x00a3;</span></td>
@@ -948,9 +935,7 @@
           <td>SC005</td>
           <td><span class="codepoint">U+0034</span> <span class="key-character">&#x0034;</span></td>
           <td><span class="codepoint">U+0024</span> <span class="key-character">&#x0024;</span></td>
-          <td><span class="codepoint">U+0034</span> <span class="key-character">&#x0034;</span></td>
-          <td><span class="codepoint">U+0024</span> <span class="key-character">&#x0024;</span></td>
-          <td><span class="codepoint">U+20AC</span> <span class="key-character">&#x20ac;</span></td>
+          <td><span class="codepoint">U+00A2</span> <span class="key-character">&#x00a2;</span></td>
           <td><span class="codepoint">U+2039</span> <span class="key-character">&#x2039;</span></td>
         </tr>
         <tr>
@@ -959,17 +944,13 @@
           <td>SC006</td>
           <td><span class="codepoint">U+0035</span> <span class="key-character">&#x0035;</span></td>
           <td><span class="codepoint">U+0025</span> <span class="key-character">&#x0025;</span></td>
-          <td><span class="codepoint">U+0035</span> <span class="key-character">&#x0035;</span></td>
-          <td><span class="codepoint">U+0025</span> <span class="key-character">&#x0025;</span></td>
-          <td><span class="codepoint">U+2030</span> <span class="key-character">&#x2030;</span></td>
+          <td><span class="codepoint">U+20AC</span> <span class="key-character">&#x20ac;</span></td>
           <td><span class="codepoint">U+203A</span> <span class="key-character">&#x203a;</span></td>
         </tr>
         <tr>
           <td>E06</td>
           <td>AE06</td>
           <td>SC007</td>
-          <td><span class="codepoint">U+0036</span> <span class="key-character">&#x0036;</span></td>
-          <td><span class="codepoint">U+005E</span> <span class="key-character">&#x005e;</span></td>
           <td><span class="codepoint">U+0036</span> <span class="key-character">&#x0036;</span></td>
           <td><span class="codepoint">U+005E</span> <span class="key-character">&#x005e;</span></td>
           <td><span class="codepoint">U+221A</span> <span class="key-character">&#x221a;</span></td>
@@ -981,8 +962,6 @@
           <td>SC008</td>
           <td><span class="codepoint">U+0037</span> <span class="key-character">&#x0037;</span></td>
           <td><span class="codepoint">U+0026</span> <span class="key-character">&#x0026;</span></td>
-          <td><span class="codepoint">U+0037</span> <span class="key-character">&#x0037;</span></td>
-          <td><span class="codepoint">U+0026</span> <span class="key-character">&#x0026;</span></td>
           <td><span class="codepoint">U+204A</span> <span class="key-character">&#x204a;</span></td>
           <td><span class="codepoint">U+2717</span> <span class="key-character">&#x2717;</span></td>
         </tr>
@@ -990,8 +969,6 @@
           <td>E08</td>
           <td>AE08</td>
           <td>SC009</td>
-          <td><span class="codepoint">U+0038</span> <span class="key-character">&#x0038;</span></td>
-          <td><span class="codepoint">U+002A</span> <span class="key-character">&#x002a;</span></td>
           <td><span class="codepoint">U+0038</span> <span class="key-character">&#x0038;</span></td>
           <td><span class="codepoint">U+002A</span> <span class="key-character">&#x002a;</span></td>
           <td><span class="codepoint">U+00B0</span> <span class="key-character">&#x00b0;</span></td>
@@ -1003,8 +980,6 @@
           <td>SC00A</td>
           <td><span class="codepoint">U+0039</span> <span class="key-character">&#x0039;</span></td>
           <td><span class="codepoint">U+0028</span> <span class="key-character">&#x0028;</span></td>
-          <td><span class="codepoint">U+0039</span> <span class="key-character">&#x0039;</span></td>
-          <td><span class="codepoint">U+0028</span> <span class="key-character">&#x0028;</span></td>
           <td><span class="codepoint">U+00AA</span> <span class="key-character">&#x00aa;</span></td>
           <td></td>
         </tr>
@@ -1012,8 +987,6 @@
           <td>E10</td>
           <td>AE10</td>
           <td>SC00B</td>
-          <td><span class="codepoint">U+0030</span> <span class="key-character">&#x0030;</span></td>
-          <td><span class="codepoint">U+0029</span> <span class="key-character">&#x0029;</span></td>
           <td><span class="codepoint">U+0030</span> <span class="key-character">&#x0030;</span></td>
           <td><span class="codepoint">U+0029</span> <span class="key-character">&#x0029;</span></td>
           <td><span class="codepoint">U+00BA</span> <span class="key-character">&#x00ba;</span></td>
@@ -1025,8 +998,6 @@
           <td>SC00C</td>
           <td><span class="codepoint">U+002D</span> <span class="key-character">&#x002d;</span></td>
           <td><span class="codepoint">U+005F</span> <span class="key-character">&#x005f;</span></td>
-          <td><span class="codepoint">U+002D</span> <span class="key-character">&#x002d;</span></td>
-          <td><span class="codepoint">U+005F</span> <span class="key-character">&#x005f;</span></td>
           <td><span class="codepoint">U+2212</span> <span class="key-character">&#x2212;</span></td>
           <td><span class="codepoint">U+00F7</span> <span class="key-character">&#x00f7;</span></td>
         </tr>
@@ -1034,8 +1005,6 @@
           <td>E12</td>
           <td>AE12</td>
           <td>SC00D</td>
-          <td><span class="codepoint">U+003D</span> <span class="key-character">&#x003d;</span></td>
-          <td><span class="codepoint">U+002B</span> <span class="key-character">&#x002b;</span></td>
           <td><span class="codepoint">U+003D</span> <span class="key-character">&#x003d;</span></td>
           <td><span class="codepoint">U+002B</span> <span class="key-character">&#x002b;</span></td>
           <td><span class="codepoint">U+2248</span> <span class="key-character">&#x2248;</span></td>
@@ -1049,8 +1018,6 @@
           <td>SC010</td>
           <td><span class="codepoint">U+0071</span> <span class="key-character">&#x0071;</span></td>
           <td><span class="codepoint">U+0051</span> <span class="key-character">&#x0051;</span></td>
-          <td><span class="codepoint">U+0071</span> <span class="key-character">&#x0071;</span></td>
-          <td><span class="codepoint">U+0051</span> <span class="key-character">&#x0051;</span></td>
           <td><span class="codepoint">U+00E0</span> <span class="key-character">&#x00e0;</span></td>
           <td><span class="codepoint">U+00C0</span> <span class="key-character">&#x00c0;</span></td>
         </tr>
@@ -1058,8 +1025,6 @@
           <td>D02</td>
           <td>AD02</td>
           <td>SC011</td>
-          <td><span class="codepoint">U+0077</span> <span class="key-character">&#x0077;</span></td>
-          <td><span class="codepoint">U+0057</span> <span class="key-character">&#x0057;</span></td>
           <td><span class="codepoint">U+0077</span> <span class="key-character">&#x0077;</span></td>
           <td><span class="codepoint">U+0057</span> <span class="key-character">&#x0057;</span></td>
           <td><span class="codepoint">U+00E9</span> <span class="key-character">&#x00e9;</span></td>
@@ -1071,8 +1036,6 @@
           <td>SC012</td>
           <td><span class="codepoint">U+0065</span> <span class="key-character">&#x0065;</span></td>
           <td><span class="codepoint">U+0045</span> <span class="key-character">&#x0045;</span></td>
-          <td><span class="codepoint">U+0065</span> <span class="key-character">&#x0065;</span></td>
-          <td><span class="codepoint">U+0045</span> <span class="key-character">&#x0045;</span></td>
           <td><span class="codepoint">U+00EB</span> <span class="key-character">&#x00eb;</span></td>
           <td><span class="codepoint">U+00CB</span> <span class="key-character">&#x00cb;</span></td>
         </tr>
@@ -1080,8 +1043,6 @@
           <td>D04</td>
           <td>AD04</td>
           <td>SC013</td>
-          <td><span class="codepoint">U+0072</span> <span class="key-character">&#x0072;</span></td>
-          <td><span class="codepoint">U+0052</span> <span class="key-character">&#x0052;</span></td>
           <td><span class="codepoint">U+0072</span> <span class="key-character">&#x0072;</span></td>
           <td><span class="codepoint">U+0052</span> <span class="key-character">&#x0052;</span></td>
           <td><span class="codepoint">U+00E8</span> <span class="key-character">&#x00e8;</span></td>
@@ -1093,8 +1054,6 @@
           <td>SC014</td>
           <td><span class="codepoint">U+0074</span> <span class="key-character">&#x0074;</span></td>
           <td><span class="codepoint">U+0054</span> <span class="key-character">&#x0054;</span></td>
-          <td><span class="codepoint">U+0074</span> <span class="key-character">&#x0074;</span></td>
-          <td><span class="codepoint">U+0054</span> <span class="key-character">&#x0054;</span></td>
           <td><span class="codepoint">U+00AE</span> <span class="key-character">&#x00ae;</span></td>
           <td><span class="codepoint">U+00A9</span> <span class="key-character">&#x00a9;</span></td>
         </tr>
@@ -1102,8 +1061,6 @@
           <td>D06</td>
           <td>AD06</td>
           <td>SC015</td>
-          <td><span class="codepoint">U+0079</span> <span class="key-character">&#x0079;</span></td>
-          <td><span class="codepoint">U+0059</span> <span class="key-character">&#x0059;</span></td>
           <td><span class="codepoint">U+0079</span> <span class="key-character">&#x0079;</span></td>
           <td><span class="codepoint">U+0059</span> <span class="key-character">&#x0059;</span></td>
           <td><span class="codepoint">U+00FB</span> <span class="key-character">&#x00fb;</span></td>
@@ -1115,8 +1072,6 @@
           <td>SC016</td>
           <td><span class="codepoint">U+0075</span> <span class="key-character">&#x0075;</span></td>
           <td><span class="codepoint">U+0055</span> <span class="key-character">&#x0055;</span></td>
-          <td><span class="codepoint">U+0075</span> <span class="key-character">&#x0075;</span></td>
-          <td><span class="codepoint">U+0055</span> <span class="key-character">&#x0055;</span></td>
           <td><span class="codepoint">U+00FC</span> <span class="key-character">&#x00fc;</span></td>
           <td><span class="codepoint">U+00DC</span> <span class="key-character">&#x00dc;</span></td>
         </tr>
@@ -1124,8 +1079,6 @@
           <td>D08</td>
           <td>AD08</td>
           <td>SC017</td>
-          <td><span class="codepoint">U+0069</span> <span class="key-character">&#x0069;</span></td>
-          <td><span class="codepoint">U+0049</span> <span class="key-character">&#x0049;</span></td>
           <td><span class="codepoint">U+0069</span> <span class="key-character">&#x0069;</span></td>
           <td><span class="codepoint">U+0049</span> <span class="key-character">&#x0049;</span></td>
           <td><span class="codepoint">U+00EF</span> <span class="key-character">&#x00ef;</span></td>
@@ -1137,8 +1090,6 @@
           <td>SC018</td>
           <td><span class="codepoint">U+006F</span> <span class="key-character">&#x006f;</span></td>
           <td><span class="codepoint">U+004F</span> <span class="key-character">&#x004f;</span></td>
-          <td><span class="codepoint">U+006F</span> <span class="key-character">&#x006f;</span></td>
-          <td><span class="codepoint">U+004F</span> <span class="key-character">&#x004f;</span></td>
           <td><span class="codepoint">U+00F6</span> <span class="key-character">&#x00f6;</span></td>
           <td><span class="codepoint">U+00D6</span> <span class="key-character">&#x00d6;</span></td>
         </tr>
@@ -1146,8 +1097,6 @@
           <td>D10</td>
           <td>AD10</td>
           <td>SC019</td>
-          <td><span class="codepoint">U+0070</span> <span class="key-character">&#x0070;</span></td>
-          <td><span class="codepoint">U+0050</span> <span class="key-character">&#x0050;</span></td>
           <td><span class="codepoint">U+0070</span> <span class="key-character">&#x0070;</span></td>
           <td><span class="codepoint">U+0050</span> <span class="key-character">&#x0050;</span></td>
           <td><span class="codepoint">U+00B6</span> <span class="key-character">&#x00b6;</span></td>
@@ -1159,8 +1108,6 @@
           <td>SC01A</td>
           <td><span class="codepoint">U+005B</span> <span class="key-character">&#x005b;</span></td>
           <td><span class="codepoint">U+007B</span> <span class="key-character">&#x007b;</span></td>
-          <td><span class="codepoint">U+005B</span> <span class="key-character">&#x005b;</span></td>
-          <td><span class="codepoint">U+007B</span> <span class="key-character">&#x007b;</span></td>
           <td><span class="codepoint">U+2018</span> <span class="key-character">&#x2018;</span></td>
           <td><span class="codepoint">U+201C</span> <span class="key-character">&#x201c;</span></td>
         </tr>
@@ -1168,8 +1115,6 @@
           <td>D12</td>
           <td>AD12</td>
           <td>SC01B</td>
-          <td><span class="codepoint">U+005D</span> <span class="key-character">&#x005d;</span></td>
-          <td><span class="codepoint">U+007D</span> <span class="key-character">&#x007d;</span></td>
           <td><span class="codepoint">U+005D</span> <span class="key-character">&#x005d;</span></td>
           <td><span class="codepoint">U+007D</span> <span class="key-character">&#x007d;</span></td>
           <td><span class="codepoint">U+2019</span> <span class="key-character">&#x2019;</span></td>
@@ -1183,8 +1128,6 @@
           <td>SC01E</td>
           <td><span class="codepoint">U+0061</span> <span class="key-character">&#x0061;</span></td>
           <td><span class="codepoint">U+0041</span> <span class="key-character">&#x0041;</span></td>
-          <td><span class="codepoint">U+0061</span> <span class="key-character">&#x0061;</span></td>
-          <td><span class="codepoint">U+0041</span> <span class="key-character">&#x0041;</span></td>
           <td><span class="codepoint">U+00E4</span> <span class="key-character">&#x00e4;</span></td>
           <td><span class="codepoint">U+00C4</span> <span class="key-character">&#x00c4;</span></td>
         </tr>
@@ -1192,8 +1135,6 @@
           <td>C02</td>
           <td>AC02</td>
           <td>SC01F</td>
-          <td><span class="codepoint">U+0073</span> <span class="key-character">&#x0073;</span></td>
-          <td><span class="codepoint">U+0053</span> <span class="key-character">&#x0053;</span></td>
           <td><span class="codepoint">U+0073</span> <span class="key-character">&#x0073;</span></td>
           <td><span class="codepoint">U+0053</span> <span class="key-character">&#x0053;</span></td>
           <td><span class="codepoint">U+00DF</span> <span class="key-character">&#x00df;</span></td>
@@ -1205,8 +1146,6 @@
           <td>SC020</td>
           <td><span class="codepoint">U+0064</span> <span class="key-character">&#x0064;</span></td>
           <td><span class="codepoint">U+0044</span> <span class="key-character">&#x0044;</span></td>
-          <td><span class="codepoint">U+0064</span> <span class="key-character">&#x0064;</span></td>
-          <td><span class="codepoint">U+0044</span> <span class="key-character">&#x0044;</span></td>
           <td class="deadkey"><span class="codepoint">DEADDI</span> <span class="key-character">&#x25cc;&#x0308;</span></td>
           <td><span class="codepoint">U+2033</span> <span class="key-character">&#x2033;</span></td>
         </tr>
@@ -1214,8 +1153,6 @@
           <td>C04</td>
           <td>AC04</td>
           <td>SC021</td>
-          <td><span class="codepoint">U+0066</span> <span class="key-character">&#x0066;</span></td>
-          <td><span class="codepoint">U+0046</span> <span class="key-character">&#x0046;</span></td>
           <td><span class="codepoint">U+0066</span> <span class="key-character">&#x0066;</span></td>
           <td><span class="codepoint">U+0046</span> <span class="key-character">&#x0046;</span></td>
           <td class="deadkey"><span class="codepoint">DEADAC</span> <span class="key-character">&#x25cc;&#x0301;</span></td>
@@ -1227,8 +1164,6 @@
           <td>SC022</td>
           <td><span class="codepoint">U+0067</span> <span class="key-character">&#x0067;</span></td>
           <td><span class="codepoint">U+0047</span> <span class="key-character">&#x0047;</span></td>
-          <td><span class="codepoint">U+0067</span> <span class="key-character">&#x0067;</span></td>
-          <td><span class="codepoint">U+0047</span> <span class="key-character">&#x0047;</span></td>
           <td class="deadkey"><span class="codepoint">DEADMA</span> <span class="key-character">&#x25cc;&#x0304;</span></td>
           <td></td>
         </tr>
@@ -1236,8 +1171,6 @@
           <td>C06</td>
           <td>AC06</td>
           <td>SC023</td>
-          <td><span class="codepoint">U+0068</span> <span class="key-character">&#x0068;</span></td>
-          <td><span class="codepoint">U+0048</span> <span class="key-character">&#x0048;</span></td>
           <td><span class="codepoint">U+0068</span> <span class="key-character">&#x0068;</span></td>
           <td><span class="codepoint">U+0048</span> <span class="key-character">&#x0048;</span></td>
           <td></td>
@@ -1249,8 +1182,6 @@
           <td>SC024</td>
           <td><span class="codepoint">U+006A</span> <span class="key-character">&#x006a;</span></td>
           <td><span class="codepoint">U+004A</span> <span class="key-character">&#x004a;</span></td>
-          <td><span class="codepoint">U+006A</span> <span class="key-character">&#x006a;</span></td>
-          <td><span class="codepoint">U+004A</span> <span class="key-character">&#x004a;</span></td>
           <td class="deadkey"><span class="codepoint">DEADGR</span> <span class="key-character">&#x25cc;&#x0300;</span></td>
           <td></td>
         </tr>
@@ -1260,8 +1191,6 @@
           <td>SC025</td>
           <td><span class="codepoint">U+006B</span> <span class="key-character">&#x006b;</span></td>
           <td><span class="codepoint">U+004B</span> <span class="key-character">&#x004b;</span></td>
-          <td><span class="codepoint">U+006B</span> <span class="key-character">&#x006b;</span></td>
-          <td><span class="codepoint">U+004B</span> <span class="key-character">&#x004b;</span></td>
           <td class="deadkey"><span class="codepoint">DEADCI</span> <span class="key-character">&#x25cc;&#x0302;</span></td>
           <td></td>
         </tr>
@@ -1269,8 +1198,6 @@
           <td>C09</td>
           <td>AC09</td>
           <td>SC026</td>
-          <td><span class="codepoint">U+006C</span> <span class="key-character">&#x006c;</span></td>
-          <td><span class="codepoint">U+004C</span> <span class="key-character">&#x004c;</span></td>
           <td><span class="codepoint">U+006C</span> <span class="key-character">&#x006c;</span></td>
           <td><span class="codepoint">U+004C</span> <span class="key-character">&#x004c;</span></td>
           <td><span class="codepoint">U+00F4</span> <span class="key-character">&#x00f4;</span></td>
@@ -1284,15 +1211,11 @@
           <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
           <td><span class="codepoint">U+003B</span> <span class="key-character">&#x003b;</span></td>
           <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
-          <td><span class="codepoint">U+003B</span> <span class="key-character">&#x003b;</span></td>
-          <td><span class="codepoint">U+003A</span> <span class="key-character">&#x003a;</span></td>
         </tr>
         <tr>
           <td>C11</td>
           <td>AC11</td>
           <td>SC028</td>
-          <td><span class="codepoint">U+0027</span> <span class="key-character">&#x0027;</span></td>
-          <td><span class="codepoint">U+0040</span> <span class="key-character">&#x0040;</span></td>
           <td><span class="codepoint">U+0027</span> <span class="key-character">&#x0027;</span></td>
           <td><span class="codepoint">U+0022</span> <span class="key-character">&#x0022;</span></td>
           <td><span class="codepoint">U+201A</span> <span class="key-character">&#x201a;</span></td>
@@ -1302,11 +1225,9 @@
           <td>C12</td>
           <td>BKSL</td>
           <td>SC02B</td>
-          <td><span class="codepoint">U+0023</span> <span class="key-character">&#x0023;</span></td>
-          <td><span class="codepoint">U+007E</span> <span class="key-character">&#x007e;</span></td>
           <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
           <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
-          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
+          <td></td>
           <td></td>
         </tr>
       </tbody>
@@ -1317,17 +1238,13 @@
           <td>SC056</td>
           <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
           <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
-          <td><span class="codepoint">U+005C</span> <span class="key-character">&#x005c;</span></td>
-          <td><span class="codepoint">U+007C</span> <span class="key-character">&#x007c;</span></td>
-          <td><span class="codepoint">U+00EA</span> <span class="key-character">&#x00ea;</span></td>
-          <td><span class="codepoint">U+00CA</span> <span class="key-character">&#x00ca;</span></td>
+          <td></td>
+          <td></td>
         </tr>
         <tr>
           <td>B01</td>
           <td>AB01</td>
           <td>SC02C</td>
-          <td><span class="codepoint">U+007A</span> <span class="key-character">&#x007a;</span></td>
-          <td><span class="codepoint">U+005A</span> <span class="key-character">&#x005a;</span></td>
           <td><span class="codepoint">U+007A</span> <span class="key-character">&#x007a;</span></td>
           <td><span class="codepoint">U+005A</span> <span class="key-character">&#x005a;</span></td>
           <td><span class="codepoint">U+00E6</span> <span class="key-character">&#x00e6;</span></td>
@@ -1339,8 +1256,6 @@
           <td>SC02D</td>
           <td><span class="codepoint">U+0078</span> <span class="key-character">&#x0078;</span></td>
           <td><span class="codepoint">U+0058</span> <span class="key-character">&#x0058;</span></td>
-          <td><span class="codepoint">U+0078</span> <span class="key-character">&#x0078;</span></td>
-          <td><span class="codepoint">U+0058</span> <span class="key-character">&#x0058;</span></td>
           <td><span class="codepoint">U+0153</span> <span class="key-character">&#x0153;</span></td>
           <td><span class="codepoint">U+0152</span> <span class="key-character">&#x0152;</span></td>
         </tr>
@@ -1348,8 +1263,6 @@
           <td>B03</td>
           <td>AB03</td>
           <td>SC02E</td>
-          <td><span class="codepoint">U+0063</span> <span class="key-character">&#x0063;</span></td>
-          <td><span class="codepoint">U+0043</span> <span class="key-character">&#x0043;</span></td>
           <td><span class="codepoint">U+0063</span> <span class="key-character">&#x0063;</span></td>
           <td><span class="codepoint">U+0043</span> <span class="key-character">&#x0043;</span></td>
           <td><span class="codepoint">U+00E7</span> <span class="key-character">&#x00e7;</span></td>
@@ -1361,8 +1274,6 @@
           <td>SC02F</td>
           <td><span class="codepoint">U+0076</span> <span class="key-character">&#x0076;</span></td>
           <td><span class="codepoint">U+0056</span> <span class="key-character">&#x0056;</span></td>
-          <td><span class="codepoint">U+0076</span> <span class="key-character">&#x0076;</span></td>
-          <td><span class="codepoint">U+0056</span> <span class="key-character">&#x0056;</span></td>
           <td><span class="codepoint">U+2014</span> <span class="key-character">&#x2014;</span></td>
           <td></td>
         </tr>
@@ -1370,8 +1281,6 @@
           <td>B05</td>
           <td>AB05</td>
           <td>SC030</td>
-          <td><span class="codepoint">U+0062</span> <span class="key-character">&#x0062;</span></td>
-          <td><span class="codepoint">U+0042</span> <span class="key-character">&#x0042;</span></td>
           <td><span class="codepoint">U+0062</span> <span class="key-character">&#x0062;</span></td>
           <td><span class="codepoint">U+0042</span> <span class="key-character">&#x0042;</span></td>
           <td><span class="codepoint">U+2013</span> <span class="key-character">&#x2013;</span></td>
@@ -1383,8 +1292,6 @@
           <td>SC031</td>
           <td><span class="codepoint">U+006E</span> <span class="key-character">&#x006e;</span></td>
           <td><span class="codepoint">U+004E</span> <span class="key-character">&#x004e;</span></td>
-          <td><span class="codepoint">U+006E</span> <span class="key-character">&#x006e;</span></td>
-          <td><span class="codepoint">U+004E</span> <span class="key-character">&#x004e;</span></td>
           <td><span class="codepoint">U+00F1</span> <span class="key-character">&#x00f1;</span></td>
           <td><span class="codepoint">U+00D1</span> <span class="key-character">&#x00d1;</span></td>
         </tr>
@@ -1392,8 +1299,6 @@
           <td>B07</td>
           <td>AB07</td>
           <td>SC032</td>
-          <td><span class="codepoint">U+006D</span> <span class="key-character">&#x006d;</span></td>
-          <td><span class="codepoint">U+004D</span> <span class="key-character">&#x004d;</span></td>
           <td><span class="codepoint">U+006D</span> <span class="key-character">&#x006d;</span></td>
           <td><span class="codepoint">U+004D</span> <span class="key-character">&#x004d;</span></td>
           <td><span class="codepoint">U+00B5</span> <span class="key-character">&#x00b5;</span></td>
@@ -1405,8 +1310,6 @@
           <td>SC033</td>
           <td><span class="codepoint">U+002C</span> <span class="key-character">&#x002c;</span></td>
           <td><span class="codepoint">U+003C</span> <span class="key-character">&#x003c;</span></td>
-          <td><span class="codepoint">U+002C</span> <span class="key-character">&#x002c;</span></td>
-          <td><span class="codepoint">U+003C</span> <span class="key-character">&#x003c;</span></td>
           <td><span class="codepoint">U+2026</span> <span class="key-character">&#x2026;</span></td>
           <td><span class="codepoint">U+2264</span> <span class="key-character">&#x2264;</span></td>
         </tr>
@@ -1414,8 +1317,6 @@
           <td>B09</td>
           <td>AB09</td>
           <td>SC034</td>
-          <td><span class="codepoint">U+002E</span> <span class="key-character">&#x002e;</span></td>
-          <td><span class="codepoint">U+003E</span> <span class="key-character">&#x003e;</span></td>
           <td><span class="codepoint">U+002E</span> <span class="key-character">&#x002e;</span></td>
           <td><span class="codepoint">U+003E</span> <span class="key-character">&#x003e;</span></td>
           <td><span class="codepoint">U+22C5</span> <span class="key-character">&#x22c5;</span></td>
@@ -1427,8 +1328,6 @@
           <td>SC035</td>
           <td><span class="codepoint">U+002F</span> <span class="key-character">&#x002f;</span></td>
           <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
-          <td><span class="codepoint">U+002F</span> <span class="key-character">&#x002f;</span></td>
-          <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
           <td><span class="codepoint">U+003F</span> <span class="key-character">&#x003f;</span></td>
           <td><span class="codepoint">U+00BF</span> <span class="key-character">&#x00bf;</span></td>
         </tr>
@@ -1438,8 +1337,6 @@
           <td>SPC</td>
           <td>SPCE</td>
           <td>SC039</td>
-          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
-          <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
           <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
           <td><span class="codepoint">U+0020</span> <span class="key-character">&#x0020;</span></td>
           <td><span class="codepoint">U+202F</span> <span class="key-character">&#x202f;</span></td>

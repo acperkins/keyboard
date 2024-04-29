@@ -115,9 +115,9 @@ dead_macron := Map.Call(
 
 
 ; E02 - SC003
-; ¢
->!SC003::Send "{U+00A2}"
-<^>!SC003::Send "{U+00A2}"
+; ‰
+>!SC003::Send "{U+2030}"
+<^>!SC003::Send "{U+2030}"
 ; «
 >!+SC003::Send "{U+00AB}"
 <^>!+SC003::Send "{U+00AB}"
@@ -133,18 +133,18 @@ dead_macron := Map.Call(
 
 
 ; E04 - SC005
-; €
->!SC005::Send "{U+20AC}"
-<^>!SC005::Send "{U+20AC}"
+; ¢
+>!SC005::Send "{U+00A2}"
+<^>!SC005::Send "{U+00A2}"
 ; ‹
 >!+SC005::Send "{U+2039}"
 <^>!+SC005::Send "{U+2039}"
 
 
 ; E05 - SC006
-; ‰
->!SC006::Send "{U+2030}"
-<^>!SC006::Send "{U+2030}"
+; €
+>!SC006::Send "{U+20AC}"
+<^>!SC006::Send "{U+20AC}"
 ; ›
 >!+SC006::Send "{U+203A}"
 <^>!+SC006::Send "{U+203A}"
@@ -524,9 +524,9 @@ dead_macron := Map.Call(
 
 
 ; C12 - SC02B
-; \
->!SC02B::Send "{U+005C}"
-<^>!SC02B::Send "{U+005C}"
+;
+>!SC02B::Send ""
+<^>!SC02B::Send ""
 ;
 >!+SC02B::Send ""
 <^>!+SC02B::Send ""
@@ -535,12 +535,12 @@ dead_macron := Map.Call(
 
 
 ; B00 - SC056
-; ê
->!SC056::Send "{U+00EA}"
-<^>!SC056::Send "{U+00EA}"
-; Ê
->!+SC056::Send "{U+00CA}"
-<^>!+SC056::Send "{U+00CA}"
+;
+>!SC056::Send ""
+<^>!SC056::Send ""
+;
+>!+SC056::Send ""
+<^>!+SC056::Send ""
 
 
 ; B01 - SC02C
