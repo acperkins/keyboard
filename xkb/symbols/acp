@@ -3,7 +3,7 @@ xkb_symbols "basic" {
 
     name[Group1]= "ACP";
 
-    key <TLDE> { [ U0060,           U007E,           U007C,           U00AC           ] };  // ` ~ | ±
+    key <TLDE> { [ U0060,           U007E,           U007C,           U00B1           ] };  // ` ~ | ±
     key <AE01> { [ U0031,           U0021,           U0021,           U00A1           ] };  // 1 ! ! ¡
     key <AE02> { [ U0032,           U0040,           U2030,           U00AB           ] };  // 2 @ ‰ «
     key <AE03> { [ U0033,           U0023,           U00A3,           U00BB           ] };  // 3 # £ »
